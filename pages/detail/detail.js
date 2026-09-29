@@ -22,6 +22,7 @@ Page({
     }).catch((e) => wx.showToast({ title: e.message, icon: 'none' }));
   },
   onTransTap() {
+    if (this.data.item.is_owner) return wx.showToast({ title: '不能对自己的物品发起交易', icon: 'none' });
     if (!auth.isApproved()) return wx.showToast({ title: '需审核通过才能交易', icon: 'none' });
     this.setData({ showModal: true });
   },

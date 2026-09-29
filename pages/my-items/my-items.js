@@ -3,7 +3,9 @@ Page({
   data: { items: [], statusLabel: { available: '可交易', reserved: '已预约', completed: '已成交' } },
   onShow() { this.load(); },
   load() {
-    request({ url: '/api/items/mine/', showLoading: true }).then((data) => this.setData({ items: data.results || [] }));
+    request({ url: '/api/items/mine/', showLoading: true })
+      .then((data) => this.setData({ items: data.results || [] }))
+      .catch(() => this.setData({ items: [] }));
   },
   onDelete(e) {
     const id = e.currentTarget.dataset.id;

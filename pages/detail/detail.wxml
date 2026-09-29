@@ -11,8 +11,8 @@
     联系人：{{item.owner.community}}{{item.owner.building}}栋{{item.owner.room}} · {{item.owner.username}}<br/>
     电话：{{item.contact_phone}}
   </view>
-  <button class="btn-primary" bindtap="onFavTap">{{item.is_favorited?'取消收藏':'收藏'}}</button>
-  <button class="btn-primary" bindtap="onTransTap">发起交易</button>
+  <button class="btn-primary" wx:if="{{!item.is_owner}}" bindtap="onFavTap">{{item.is_favorited?'取消收藏':'收藏'}}</button>
+  <button class="btn-primary" wx:if="{{!item.is_owner}}" bindtap="onTransTap">发起交易</button>
 </view>
 
 <view class="mask" wx:if="{{showModal}}" bindtap="hideModal"></view>

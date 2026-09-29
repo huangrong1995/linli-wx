@@ -20,7 +20,7 @@ Page({
         return Object.assign({}, t, { canConfirm, canComplete, canCancel });
       });
       this.setData({ list });
-    });
+    }).catch(() => this.setData({ list: [] }));
   },
   act(e) {
     const { verb, idx } = e.currentTarget.dataset;

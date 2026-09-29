@@ -31,6 +31,14 @@ function ensureLogin() {
   return silentLogin();
 }
 
+function refreshProfile() {
+  // 有 token 时从后端重拉资料（管理员审核/资料变更后生效）
+  if (!getToken()) return Promise.resolve(null);
+  return request({ url: '/api/auth/me/' })
+    .then((me) => { setProfile(me); return me; })
+    .catch(() => null);
+}
+
 function isApproved() {
   const p = getProfile();
   return !!p && p.status === 'approved';
@@ -51,4 +59,4 @@ function logout() {
   });
 }
 
-module.exports = { setToken, getToken, setProfile, getProfile, silentLogin, ensureLogin, isApproved, needProfile, logout };
+module.exports = { setToken, getToken, setProfile, getProfile, silentLogin, ensureLogin, refreshProfile, isApproved, needProfile, logout };
