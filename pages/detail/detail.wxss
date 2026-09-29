@@ -7,7 +7,7 @@
   width: 100%;
   height: 440rpx;
   display: block;
-  background: linear-gradient(135deg, #EDF0EB, #E3E8E2);
+  background: linear-gradient(135deg, #27363F, #203038);
 }
 .head {
   display: flex;
@@ -17,13 +17,13 @@
 }
 .head .tag {
   flex-shrink: 0;
-  margin-top: 6rpx;
+  margin-top: 8rpx;
 }
 .title {
   flex: 1;
   font-size: 38rpx;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--plaster);
   line-height: 1.35;
 }
 .price-band {
@@ -33,8 +33,8 @@
   padding: 20rpx 28rpx 4rpx;
 }
 .borrow {
-  color: var(--spruce);
-  font-weight: 650;
+  color: var(--glow);
+  font-weight: 700;
   font-size: 34rpx;
 }
 .divider {
@@ -44,7 +44,7 @@
 }
 .desc {
   padding: 0 28rpx;
-  color: var(--ink);
+  color: var(--plaster);
   line-height: 1.75;
   font-size: 28rpx;
 }
@@ -59,12 +59,12 @@
 }
 .spec-k {
   font-size: 24rpx;
-  color: var(--ink-faint);
+  color: var(--moss);
   width: 72rpx;
 }
 .spec-v {
   flex: 1;
-  color: var(--ink-soft);
+  color: var(--moss);
   font-size: 27rpx;
 }
 
@@ -80,7 +80,7 @@
   display: flex;
   gap: 20rpx;
   padding: 20rpx 24rpx calc(20rpx + env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(27, 39, 48, 0.94);
   border-top: 1rpx solid var(--line-soft);
   z-index: 5;
 }
@@ -96,7 +96,7 @@
 .mask {
   position: fixed;
   inset: 0;
-  background: rgba(27, 42, 35, 0.45);
+  background: rgba(5, 10, 14, 0.6);
   z-index: 10;
 }
 .modal {
@@ -104,17 +104,18 @@
   left: 48rpx;
   right: 48rpx;
   top: 26%;
-  background: var(--surface);
+  background: var(--panel);
   border-radius: 24rpx;
   padding: 36rpx;
   z-index: 11;
-  box-shadow: 0 16rpx 48rpx rgba(27, 42, 35, 0.2);
+  box-shadow: 0 16rpx 48rpx rgba(5, 10, 14, 0.6);
+  border: 1rpx solid var(--line);
 }
 .modal-title {
   font-size: 32rpx;
   font-weight: 650;
   margin-bottom: 20rpx;
-  color: var(--ink);
+  color: var(--plaster);
 }
 .modal textarea {
   height: 180rpx;

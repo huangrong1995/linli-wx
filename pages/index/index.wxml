@@ -1,13 +1,20 @@
-<view class="topbar">
-  <view class="search-box">
-    <text class="s-icon">⌕</text>
-    <input class="search" placeholder="搜索邻居的闲置" value="{{keyword}}"
-           bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
-  </view>
-  <view class="chips">
-    <view wx:for="{{types}}" wx:key="v"
-          class="chip {{curType===item.v?'active':''}}"
-          bindtap="onTypeTap" data-type="{{item.v}}">{{item.label}}</view>
+<view class="hero">
+  <view class="lamp"></view>
+  <view class="hero-inner">
+    <view class="brand">
+      <text class="brand-title">邻里闲置</text>
+      <text class="brand-sub">把不再用的东西，交给下一位邻居</text>
+    </view>
+    <view class="search-box">
+      <text class="s-icon">⌕</text>
+      <input class="search" placeholder="在邻里间找找…" value="{{keyword}}"
+             bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
+    </view>
+    <view class="chips">
+      <view wx:for="{{types}}" wx:key="v"
+            class="chip {{curType===item.v?'active':''}}"
+            bindtap="onTypeTap" data-type="{{item.v}}">{{item.label}}</view>
+    </view>
   </view>
 </view>
 
@@ -20,15 +27,15 @@
     <view class="cell-title">{{item.title}}</view>
     <view class="cell-foot">
       <text class="price-small" wx:if="{{item.item_type==='sale'||item.item_type==='rent'}}">¥{{item.price}}</text>
-      <text class="borrow" wx:else>免费借用</text>
+      <text class="borrow" wx:else>可借</text>
       <text class="tag">{{typeLabel[item.item_type]}}</text>
     </view>
     <view class="fav {{item._fav?'on':''}}" catchtap="onFavTap" data-id="{{item.id}}">{{item._fav?'♥':'♡'}}</view>
   </view>
 </view>
 
-<view class="footer" wx:if="{{loading}}">加载中…</view>
+<view class="footer" wx:if="{{loading}}">入夜了，邻居们还在收拾…</view>
 <view class="empty" wx:if="{{items.length===0 && !loading}}">
-  <text class="empty-title">暂时没有匹配的闲置</text>
-  换个筛选或关键词试试
+  <text class="empty-title">这栋楼暂时没有闲置</text>
+  换个筛选或关键词，看看隔壁
 </view>

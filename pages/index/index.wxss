@@ -1,17 +1,43 @@
-.topbar {
-  background: var(--surface);
-  padding: 16rpx 24rpx 20rpx;
-  border-bottom: 1rpx solid var(--line-soft);
+/* 首页：入夜深色，顶部一抹窗灯 */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1E2B35 0%, var(--dusk) 100%);
+  padding-top: 28rpx;
 }
+.hero-inner {
+  position: relative;
+  padding: 8rpx 24rpx 20rpx;
+}
+.brand {
+  display: block;
+  margin-bottom: 24rpx;
+}
+.brand-title {
+  display: block;
+  font-size: 46rpx;
+  font-weight: 700;
+  color: var(--plaster);
+  letter-spacing: 2rpx;
+  line-height: 1.2;
+}
+.brand-sub {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  color: var(--moss);
+}
+
 .search-box {
   display: flex;
   align-items: center;
-  background: var(--canvas);
+  background: var(--panel);
+  border: 1rpx solid var(--line);
   border-radius: 999rpx;
   padding: 0 26rpx;
 }
 .s-icon {
-  color: var(--ink-faint);
+  color: var(--moss-soft);
   font-size: 32rpx;
   margin-right: 14rpx;
 }
@@ -47,13 +73,16 @@
 .cell {
   width: calc((100% - 20rpx) / 2);
   box-sizing: border-box;
-  background: var(--surface);
+  background: var(--panel);
   border-radius: 22rpx;
   padding: 14rpx;
   border: 1rpx solid var(--line-soft);
-  box-shadow: 0 6rpx 20rpx rgba(27, 42, 35, 0.05);
+  box-shadow: 0 8rpx 24rpx rgba(5, 10, 14, 0.35);
   position: relative;
   overflow: hidden;
+}
+.cell:active {
+  background: var(--panel-2);
 }
 .media {
   border-radius: 16rpx;
@@ -65,13 +94,13 @@
   display: block;
 }
 .media-img.missing {
-  background: linear-gradient(135deg, #EDF0EB, #E3E8E2);
+  background: linear-gradient(135deg, #27363F, #203038);
 }
 .cell-title {
   margin-top: 14rpx;
   font-size: 28rpx;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--plaster);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -84,8 +113,8 @@
   gap: 8rpx;
 }
 .borrow {
-  color: var(--spruce);
-  font-weight: 600;
+  color: var(--glow);
+  font-weight: 650;
   font-size: 26rpx;
 }
 .fav {
@@ -95,19 +124,21 @@
   width: 52rpx;
   height: 52rpx;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: #C9CFCA;
+  background: rgba(13, 20, 26, 0.6);
+  border: 1rpx solid var(--line);
+  color: var(--moss);
   font-size: 30rpx;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .fav.on {
-  color: var(--coral);
+  color: var(--glow);
+  border-color: rgba(232, 163, 61, 0.5);
 }
 .footer {
   text-align: center;
-  color: var(--ink-faint);
+  color: var(--moss-soft);
   padding: 24rpx;
   font-size: 24rpx;
 }

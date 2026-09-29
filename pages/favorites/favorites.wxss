@@ -1,15 +1,14 @@
 .slip {
   display: flex;
   gap: 22rpx;
-  align-items: stretch;
-  margin: 0 24rpx 20rpx;
+  align-items: center;
 }
 .slip-thumb {
   width: 160rpx;
   height: 160rpx;
   border-radius: 20rpx;
   flex-shrink: 0;
-  background: linear-gradient(135deg, #EDF0EB, #E3E8E2);
+  background: linear-gradient(135deg, #27363F, #203038);
 }
 .slip-thumb-empty {
   display: flex;
@@ -17,7 +16,7 @@
   justify-content: center;
   font-size: 26rpx;
   letter-spacing: 4rpx;
-  color: var(--ink-faint);
+  color: var(--moss-soft);
 }
 .slip-body {
   flex: 1;
@@ -25,7 +24,8 @@
   flex-direction: column;
   justify-content: space-between;
   min-width: 0;
-  padding: 4rpx 0;
+  height: 150rpx;
+  padding: 6rpx 0;
 }
 .slip-top {
   display: flex;
@@ -35,7 +35,7 @@
 .slip-title {
   font-size: 30rpx;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--plaster);
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -43,9 +43,9 @@
   white-space: nowrap;
 }
 .slip-note {
-  color: var(--spruce);
+  color: var(--glow);
   font-size: 26rpx;
-  font-weight: 600;
+  font-weight: 650;
 }
 .slip-act {
   display: flex;
@@ -58,5 +58,5 @@
   padding: 10rpx 22rpx;
   font-size: 24rpx;
   border-radius: 999rpx;
-  color: var(--ink-soft);
+  color: var(--moss);
 }

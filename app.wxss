@@ -1,52 +1,69 @@
-/* ===== 当代邻里 · 设计系统 =====
- * 现代明亮移动风格：中性画布 + 白卡片 + 克制深绿品牌色 + 珊瑚价签
- * 圆角分层：媒体大圆角 / 卡片中圆角 / 控件胶囊
+/* ===== 灯火邻里 · 设计系统 =====
+ * 入夜后的社区：月光暗色画布 + 琥珀窗灯点缀。
+ * 记忆点放在琥珀窗灯一处：价格、主按钮、首页与详情的一抹灯晕。
+ * 其余保持安静克制：暗色画布、面板卡片、暖色发丝线。
  */
 page {
-  --canvas: #F5F6F2;
-  --surface: #FFFFFF;
-  --ink: #1B2A23;
-  --ink-soft: #66746C;
-  --ink-faint: #A6AEA8;
-  --line: rgba(27, 42, 35, 0.08);
-  --line-soft: rgba(27, 42, 35, 0.05);
-  --spruce: #0E6B46;
-  --spruce-strong: #0A5137;
-  --tint: rgba(14, 107, 70, 0.09);
-  --coral: #D4512C;
+  --dusk: #1B2730;
+  --panel: #24333D;
+  --panel-2: #2C3E49;
+  --glow: #E8A33D;
+  --glow-deep: #C9842B;
+  --glow-soft: rgba(232, 163, 61, 0.16);
+  --plaster: #E9DDC8;
+  --moss: #94A89A;
+  --moss-soft: rgba(148, 168, 154, 0.40);
+  --line: rgba(233, 221, 200, 0.10);
+  --line-soft: rgba(233, 221, 200, 0.06);
+  --ember: #C97B4E;
 
-  background: var(--canvas);
-  color: var(--ink);
+  background: var(--dusk);
+  color: var(--plaster);
   font-size: 28rpx;
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
   line-height: 1.5;
 }
 
-/* 白卡片：细描边 + 柔影，悬浮于画布 */
+/* 窗口灯晕：首页与详情的顶部一抹暖光，产品唯一的记忆点 */
+.lamp {
+  position: absolute;
+  top: -120rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640rpx;
+  height: 480rpx;
+  background: radial-gradient(ellipse at center,
+    rgba(232, 163, 61, 0.22) 0%,
+    rgba(232, 163, 61, 0.08) 45%,
+    rgba(232, 163, 61, 0) 70%);
+  pointer-events: none;
+}
+
+/* 面板卡片：比画布略亮的夜色，暖发丝描边 */
 .card {
-  background: var(--surface);
+  background: var(--panel);
   border-radius: 24rpx;
   padding: 28rpx;
   margin: 0 24rpx 20rpx;
   border: 1rpx solid var(--line-soft);
-  box-shadow: 0 6rpx 24rpx rgba(27, 42, 35, 0.05);
+  box-shadow: 0 8rpx 28rpx rgba(5, 10, 14, 0.35);
   position: relative;
 }
 
-/* 价格：珊瑚，单点强调 */
+/* 价格：琥珀窗灯，单点强调 */
 .price {
-  color: var(--coral);
-  font-weight: 650;
+  color: var(--glow);
+  font-weight: 700;
   font-size: 34rpx;
   letter-spacing: 0.5rpx;
 }
 .price-small {
-  color: var(--coral);
-  font-weight: 650;
+  color: var(--glow);
+  font-weight: 700;
   font-size: 30rpx;
 }
 
-/* 状态盖戳：浅色填充 + 描边 */
+/* 状态盖戳：浅灯底 + 琥珀字 */
 .tag {
   display: inline-block;
   font-size: 22rpx;
@@ -54,16 +71,16 @@ page {
   line-height: 1;
   padding: 8rpx 16rpx;
   border-radius: 999rpx;
-  background: var(--tint);
-  color: var(--spruce);
+  background: var(--glow-soft);
+  color: var(--glow);
 }
 .tag-warn {
-  background: rgba(212, 81, 44, 0.1);
-  color: var(--coral);
+  background: rgba(201, 123, 78, 0.16);
+  color: var(--ember);
 }
 .tag-muted {
-  background: rgba(102, 116, 108, 0.12);
-  color: var(--ink-soft);
+  background: rgba(148, 168, 154, 0.14);
+  color: var(--moss);
 }
 
 /* 筛选片 */
@@ -71,39 +88,39 @@ page {
   display: inline-block;
   padding: 12rpx 30rpx;
   border-radius: 999rpx;
-  background: var(--surface);
-  color: var(--ink-soft);
+  background: var(--panel);
+  color: var(--moss);
   border: 1rpx solid var(--line);
   font-size: 26rpx;
   transition: all 0.2s;
 }
 .chip.active {
-  background: var(--spruce);
-  color: #FFFFFF;
-  border-color: var(--spruce);
+  background: var(--glow-soft);
+  color: var(--glow);
+  border-color: rgba(232, 163, 61, 0.45);
   font-weight: 600;
 }
 
-/* 主按钮：胶囊，品牌绿 */
+/* 主按钮：点亮的那盏灯，深墨文字反衬 */
 .btn-primary {
-  background: var(--spruce);
-  color: #FFFFFF;
+  background: var(--glow);
+  color: #1B2730;
   border-radius: 999rpx;
   margin-top: 24rpx;
   font-size: 30rpx;
-  font-weight: 600;
+  font-weight: 700;
 }
 .btn-primary::after {
   border: none;
 }
 .btn-primary:active {
-  background: var(--spruce-strong);
+  background: var(--glow-deep);
 }
 
-/* 次要按钮：白底描边 */
+/* 次要按钮：夜色描边 */
 .btn-ghost {
-  background: var(--surface);
-  color: var(--ink);
+  background: var(--panel);
+  color: var(--plaster);
   border: 1rpx solid var(--line);
   border-radius: 999rpx;
   font-size: 28rpx;
@@ -113,43 +130,46 @@ page {
   border: none;
 }
 
-/* 输入：圆角字段，浅底色 */
+/* 输入：夜色面板，聚焦点亮边框 */
 input, textarea {
-  background: var(--canvas);
+  background: var(--panel);
   border: 1rpx solid transparent;
   border-radius: 16rpx;
   padding: 20rpx 24rpx;
   font-size: 28rpx;
-  color: var(--ink);
+  color: var(--plaster);
   box-sizing: border-box;
   width: 100%;
 }
+input::placeholder, textarea::placeholder {
+  color: var(--moss-soft);
+}
 input:focus, textarea:focus {
-  background: var(--surface);
-  border-color: var(--spruce);
+  background: var(--panel-2);
+  border-color: rgba(232, 163, 61, 0.55);
 }
 
 /* 空态：邀请动作 */
 .empty {
   text-align: center;
-  color: var(--ink-soft);
+  color: var(--moss);
   padding: 90rpx 48rpx;
   font-size: 26rpx;
   line-height: 1.6;
 }
 .empty .empty-title {
   display: block;
-  color: var(--ink);
+  color: var(--plaster);
   font-size: 30rpx;
   font-weight: 600;
   margin-bottom: 12rpx;
 }
 
-/* 区块标题：左对齐、绿点锚定 */
+/* 区块标题：琥珀小点锚定 */
 .section-title {
   font-size: 28rpx;
   font-weight: 650;
-  color: var(--ink);
+  color: var(--plaster);
   margin: 28rpx 24rpx 16rpx;
   letter-spacing: 1rpx;
   display: flex;
@@ -161,5 +181,5 @@ input:focus, textarea:focus {
   width: 10rpx;
   height: 10rpx;
   border-radius: 50%;
-  background: var(--spruce);
+  background: var(--glow);
 }

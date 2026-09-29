@@ -1,5 +1,5 @@
 .notify.read {
-  opacity: 0.55;
+  opacity: 0.5;
 }
 .n-head {
   display: flex;
@@ -7,13 +7,13 @@
   gap: 16rpx;
 }
 .n-time {
-  color: var(--ink-faint);
+  color: var(--moss-soft);
   font-size: 22rpx;
   margin-left: auto;
 }
 .n-body {
   margin-top: 14rpx;
   font-size: 28rpx;
-  color: var(--ink);
+  color: var(--plaster);
   line-height: 1.6;
 }

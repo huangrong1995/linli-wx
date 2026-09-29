@@ -27,18 +27,18 @@
   width: 100%;
 }
 .picker-label {
-  color: var(--ink-soft);
+  color: var(--moss);
   font-size: 28rpx;
 }
 .picker-value {
   margin-left: 20rpx;
-  color: var(--ink);
+  color: var(--plaster);
   font-size: 28rpx;
   font-weight: 600;
 }
 .arrow {
   margin-left: auto;
-  color: var(--ink-faint);
+  color: var(--moss-soft);
   font-size: 40rpx;
   line-height: 1;
 }
@@ -48,7 +48,7 @@
   justify-content: center;
   height: 224rpx;
   border: 2rpx dashed var(--line);
-  background: var(--canvas);
+  background: rgba(27, 39, 48, 0.7);
   border-radius: 18rpx;
   overflow: hidden;
   margin-bottom: 26rpx;
@@ -59,6 +59,6 @@
   border-radius: 18rpx;
 }
 .img-empty {
-  color: var(--ink-faint);
+  color: var(--moss);
   font-size: 26rpx;
 }

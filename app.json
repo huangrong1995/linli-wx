@@ -11,16 +11,18 @@
     "pages/profile/profile"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarBackgroundColor": "#1B2730",
     "navigationBarTitleText": "邻里闲置",
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#F5F6F2",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#1B2730",
+    "backgroundColorTop": "#1B2730",
+    "backgroundColorBottom": "#1B2730",
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
-    "color": "#A6AEA8",
-    "selectedColor": "#0E6B46",
-    "backgroundColor": "#FFFFFF",
+    "color": "#94A89A",
+    "selectedColor": "#E8A33D",
+    "backgroundColor": "#162019",
     "borderStyle": "black",
     "list": [
       { "pagePath": "pages/index/index", "text": "闲置" },
