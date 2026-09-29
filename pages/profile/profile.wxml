@@ -1,1 +1,9 @@
-<view class="empty">占位页面</view>
+<view class="form">
+  <view class="tip" wx:if="{{status}}">当前状态：{{status==='approved'?'已通过':(status==='pending'?'等待审核':'未通过')}}</view>
+  <input class="field" type="number" placeholder="联系电话" value="{{form.phone}}" bindinput="onPhone" />
+  <input class="field" placeholder="小区" value="{{form.community}}" bindinput="onCommunity" />
+  <input class="field" placeholder="楼栋" value="{{form.building}}" bindinput="onBuilding" />
+  <input class="field" placeholder="门牌号" value="{{form.room}}" bindinput="onRoom" />
+  <input class="field" placeholder="邮箱（可选）" value="{{form.email}}" bindinput="onEmail" />
+  <button class="btn-primary" bindtap="submit">保存</button>
+</view>

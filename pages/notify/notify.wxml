@@ -1,1 +1,5 @@
-<view class="empty">占位页面</view>
+<view wx:for="{{list}}" wx:key="id" class="card {{item.is_read?'read':''}}" bindtap="onTap" data-id="{{item.id}}">
+  <view class="row"><text class="tag">{{item.typeText}}</text>{{item.content}}</view>
+  <view class="time">{{item.created_at}}</view>
+</view>
+<view class="empty" wx:if="{{list.length===0}}">暂无通知</view>
