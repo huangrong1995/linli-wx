@@ -1,0 +1,25 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+.name {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.status {
+  align-self: flex-start;
+  background: #ecfdf5;
+  color: #16a34a;
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+}
+.meta {
+  color: #999;
+}
+.menu {
+  display: block;
+  color: #333;
+  font-size: 30rpx;
+}

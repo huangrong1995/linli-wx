@@ -1,0 +1,11 @@
+.row {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.row.sub {
+  margin-top: 8rpx;
+  color: #999;
+  font-weight: 400;
+  font-size: 26rpx;
+  margin-bottom: 16rpx;
+}
