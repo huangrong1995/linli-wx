@@ -1,1 +1,24 @@
-<view class="empty">占位页面</view>
+<view class="card">
+  <view class="pic" wx:if="{{item.image}}"><image src="{{item.image}}" mode="aspectFill" /></view>
+  <view class="header">
+    <text class="title">{{item.title}}</text>
+    <text class="tag">{{typeLabel[item.item_type]}}</text>
+  </view>
+  <view class="row" wx:if="{{item.item_type!=='lend'}}">价格：¥{{item.price}}</view>
+  <view class="row">状态：{{statusLabel[item.status]}}</view>
+  <view class="desc">{{item.description}}</view>
+  <view class="owner">
+    联系人：{{item.owner.community}}{{item.owner.building}}栋{{item.owner.room}} · {{item.owner.username}}<br/>
+    电话：{{item.contact_phone}}
+  </view>
+  <button class="btn-primary" bindtap="onFavTap">{{item.is_favorited?'取消收藏':'收藏'}}</button>
+  <button class="btn-primary" bindtap="onTransTap">发起交易</button>
+</view>
+
+<view class="mask" wx:if="{{showModal}}" bindtap="hideModal"></view>
+<view class="modal" wx:if="{{showModal}}">
+  <view class="modal-title">发起交易</view>
+  <textarea placeholder="给主人留言（可选）" value="{{message}}" bindinput="onMessage" />
+  <button class="btn-primary" bindtap="submitTrans">发送请求</button>
+  <button bindtap="hideModal">取消</button>
+</view>
