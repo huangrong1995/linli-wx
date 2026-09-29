@@ -1,1 +1,21 @@
-<view class="empty">占位页面</view>
+<view class="toolbar">
+  <view class="tabs">
+    <view wx:for="{{types}}" wx:key="v" class="tab {{curType===item.v?'active':''}}" bindtap="onTypeTap" data-type="{{item.v}}">{{item.label}}</view>
+  </view>
+  <input class="search" placeholder="搜索物品" value="{{keyword}}" bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
+</view>
+
+<view wx:for="{{items}}" wx:key="id" class="card item" bindtap="onItemTap" data-id="{{item.id}}">
+  <view class="item-row">
+    <text class="item-title">{{item.title}}</text>
+    <text class="price" wx:if="{{item.item_type==='sale'||item.item_type==='rent'}}">¥{{item.price}}</text>
+  </view>
+  <view class="item-meta">
+    <text class="tag">{{typeLabel[item.item_type]}}</text>
+    <text class="owner">{{item.owner.community}}{{item.owner.building}}栋</text>
+  </view>
+  <view class="fav" catchtap="onFavTap" data-id="{{item.id}}">{{item._fav?'♥':'♡'}}</view>
+</view>
+
+<view class="footer" wx:if="{{loading}}">加载中…</view>
+<view class="empty" wx:if="{{items.length===0 && !loading}}">暂无闲置物品</view>
