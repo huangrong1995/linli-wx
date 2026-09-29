@@ -1,207 +1,191 @@
-/* ===== 釆色玻璃 · 设计系统 =====
- * 苹果系高质感：冷白空气底 + 半透明磨砂玻璃面板 + 极简排版。
- * 蓝→紫双折一处点睛：价格、主按钮、首页一抹极轻的极光。
- * 玻璃质感由「半透明 + 顶部高光 + 发丝描边 + 柔影」叠加呈现。
- * 记忆点只放一处：首页 hero 后那片极浅的蓝紫极光。
+/* ===== 邻里 OS · 像素设计系统 =====
+ * 一台由像素构成的现代操作系统。
+ * 硬边、零圆角、偏移像素影、抖点代替渐变、有限色板。
+ * 字号里拉丁/数字走等宽，中文走系统黑体 —— 终端质感，中文可读。
+ * 全局：无圆角、无模糊渐影、无抗锯齿假影。
  */
 page {
-  --bg: #F4F5F9;
-  --surface: #FFFFFF;
-  --glass: rgba(255, 255, 255, 0.72);
-  --glass-strong: rgba(255, 255, 255, 0.86);
-  --glass-line: rgba(255, 255, 255, 0.92);
-  --ink: #14161D;
-  --ink-soft: #5A5F6A;
-  --ink-faint: #98A0AC;
-  --line: rgba(20, 22, 29, 0.06);
-  --line-soft: rgba(20, 22, 29, 0.04);
-  --accent: #6366F1;
-  --accent-deep: #5549E8;
-  --accent-violet: #8E7CFF;
-  --accent-soft: rgba(99, 102, 241, 0.10);
-  --accent-grad: linear-gradient(135deg, #6366F1, #8E7CFF);
-  --shadow: 0 10rpx 40rpx rgba(20, 22, 29, 0.07);
-  --shadow-soft: 0 6rpx 24rpx rgba(20, 22, 29, 0.05);
+  --ink:   #101319;   /* deep charcoal · 页面底 */
+  --ink-2: #151A24;
+  --navy:  #1B2334;   /* dark navy · 面板 */
+  --navy-2:#263049;
+  --blue:  #3E7BFF;   /* electric blue · 主强调 */
+  --cyan:  #5FD4E2;   /* soft cyan · 次强调 */
+  --whit:  #F2EFE8;   /* warm white · 前景 */
+  --steel: #8A93A8;   /* steel · 次要文字 */
+  --line:  #2A3144;   /* 硬像素描边 */
+  --pix:   #080B10;   /* 像素影（硬偏移） */
 
-  background: var(--bg);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--whit);
   font-size: 28rpx;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+  font-family: Menlo, Consolas, "SF Mono", "Courier New", "PingFang SC", monospace;
   font-weight: 400;
-  letter-spacing: 0.2rpx;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* 首页 hero 后极浅的蓝紫极光：唯一的记忆点 */
-.aurora {
-  position: absolute;
-  top: -140rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 720rpx;
-  height: 540rpx;
-  background:
-    radial-gradient(ellipse at 30% 40%, rgba(99, 102, 241, 0.16) 0%, rgba(99, 102, 241, 0) 55%),
-    radial-gradient(ellipse at 72% 55%, rgba(142, 124, 255, 0.14) 0%, rgba(142, 124, 255, 0) 55%);
-  pointer-events: none;
+/* 全局：无圆角 —— 像素铁律 */
+page, view, text, button, input, textarea, picker, image, navigator {
+  border-radius: 0;
 }
 
-/* 磨砂玻璃面板：半透明 + 顶部高光 + 发丝描边 + 柔影 */
-.glass {
-  background: var(--glass);
-  border: 1rpx solid var(--glass-line);
-  border-radius: 32rpx;
-  box-shadow: var(--shadow);
-  background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 22%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
-  /* 不能保证 WebView 支持，保留作为优雅回退 */
-  backdrop-filter: blur(24rpx);
-  -webkit-backdrop-filter: blur(24rpx);
-}
-
-/* 卡片：悬浮玻璃层 */
+/* 面板：深海军蓝，双像素描边，硬偏移影 */
 .card {
-  background: var(--glass);
-  border: 1rpx solid var(--glass-line);
-  border-radius: 30rpx;
+  background: var(--navy);
+  border: 2rpx solid var(--line);
   padding: 28rpx;
   margin: 0 24rpx 20rpx;
-  box-shadow: var(--shadow);
-  background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 20%),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+  box-shadow: 4rpx 4rpx 0 var(--pix);
   position: relative;
-  backdrop-filter: blur(20rpx);
-  -webkit-backdrop-filter: blur(20rpx);
 }
 
-/* 价格：靛蓝，单点强调 */
+/* 抖点遮罩：图块或状态条里代替渐变的细密像素点 */
+.dither {
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(242, 239, 232, 0.05) 0 3rpx,
+      transparent 3rpx 7rpx);
+}
+
+/* 价格：电光蓝 */
 .price {
-  color: var(--accent);
-  font-weight: 600;
+  color: var(--blue);
+  font-weight: 700;
   font-size: 34rpx;
-  letter-spacing: 0.2rpx;
+  letter-spacing: 1rpx;
 }
 .price-small {
-  color: var(--accent);
-  font-weight: 600;
+  color: var(--blue);
+  font-weight: 700;
   font-size: 30rpx;
 }
 
-/* 状态盖戳：浅靛底 + 靛字 */
+/* 状态戳：硬像素标签 */
 .tag {
   display: inline-block;
   font-size: 21rpx;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
-  padding: 8rpx 16rpx;
-  border-radius: 999rpx;
-  background: var(--accent-soft);
-  color: var(--accent);
+  padding: 8rpx 12rpx;
+  border: 2rpx solid var(--blue);
+  color: var(--cyan);
+  background: rgba(62, 123, 255, 0.14);
 }
 .tag-warn {
-  background: rgba(232, 113, 83, 0.12);
-  color: #D9643F;
+  border-color: #E07A54;
+  color: #F0A88B;
+  background: rgba(224, 122, 84, 0.12);
 }
 .tag-muted {
-  background: rgba(90, 95, 106, 0.11);
-  color: var(--ink-soft);
+  border-color: var(--line);
+  color: var(--steel);
+  background: transparent;
 }
 
-/* 筛选片：轻盈胶囊 */
+/* 筛选片：像素切换钮 */
 .chip {
   display: inline-block;
-  padding: 12rpx 30rpx;
-  border-radius: 999rpx;
-  background: rgba(255, 255, 255, 0.6);
-  color: var(--ink-soft);
-  border: 1rpx solid var(--line);
+  padding: 12rpx 26rpx;
+  border: 2rpx solid var(--line);
+  background: var(--navy);
+  color: var(--steel);
   font-size: 26rpx;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: all 0.12s;
 }
 .chip.active {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-color: rgba(99, 102, 241, 0.25);
-  font-weight: 600;
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #101319;
+  font-weight: 700;
 }
 
-/* 主按钮：蓝紫渐变胶囊 */
+/* 主按钮：电光蓝填充 + 像素影 */
 .btn-primary {
-  background: var(--accent-grad);
-  color: #FFFFFF;
-  border-radius: 999rpx;
+  background: var(--blue);
+  color: #101319;
+  border: 2rpx solid var(--line);
+  border-radius: 0;
   margin-top: 24rpx;
   font-size: 30rpx;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1rpx;
-  box-shadow: 0 10rpx 28rpx rgba(99, 102, 241, 0.28);
+  box-shadow: 4rpx 4rpx 0 var(--pix);
 }
 .btn-primary::after {
   border: none;
 }
 .btn-primary:active {
-  opacity: 0.9;
-  transform: scale(0.985);
+  color: var(--cyan);
+  box-shadow: 1rpx 1rpx 0 var(--pix);
+  transform: translate(3rpx, 3rpx);
 }
 
-/* 次要按钮：白底描边 */
+/* 次要按钮：描边 */
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.7);
-  color: var(--ink);
-  border: 1rpx solid var(--line);
-  border-radius: 999rpx;
+  background: var(--navy);
+  color: var(--whit);
+  border: 2rpx solid var(--line);
+  border-radius: 0;
   font-size: 28rpx;
   font-weight: 500;
+  box-shadow: 3rpx 3rpx 0 var(--pix);
 }
 .btn-ghost::after {
   border: none;
 }
+.btn-ghost:active {
+  transform: translate(2rpx, 2rpx);
+  box-shadow: 1rpx 1rpx 0 var(--pix);
+}
 
-/* 输入：柔性字段，聚焦点亮 */
+/* 输入：硬像素字段 */
 input, textarea {
-  background: rgba(255, 255, 255, 0.62);
-  border: 1rpx solid transparent;
-  border-radius: 20rpx;
-  padding: 20rpx 26rpx;
+  background: var(--navy);
+  border: 2rpx solid var(--line);
+  border-radius: 0;
+  padding: 20rpx 24rpx;
   font-size: 28rpx;
-  color: var(--ink);
+  color: var(--whit);
   box-sizing: border-box;
   width: 100%;
   font-weight: 400;
 }
 input::placeholder, textarea::placeholder {
-  color: var(--ink-faint);
-  font-weight: 400;
+  color: var(--steel);
 }
 input:focus, textarea:focus {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(99, 102, 241, 0.45);
+  border-color: var(--blue);
+  background: var(--navy-2);
 }
 
-/* 空态：邀请动作 */
+/* 空态 */
 .empty {
   text-align: center;
-  color: var(--ink-soft);
+  color: var(--steel);
   padding: 100rpx 52rpx;
   font-size: 26rpx;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 .empty .empty-title {
   display: block;
-  color: var(--ink);
+  color: var(--whit);
   font-size: 30rpx;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 12rpx;
 }
 
-/* 区块标题：极简，左对齐 */
+/* 区块标题：等宽、左上锚定 */
 .section-title {
-  font-size: 30rpx;
-  font-weight: 600;
-  letter-spacing: 0.4rpx;
-  color: var(--ink);
+  font-size: 26rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  color: var(--cyan);
+  text-transform: uppercase;
   margin: 30rpx 28rpx 18rpx;
+}
+.section-title::after {
+  content: "▍";
+  color: var(--blue);
+  margin-left: 8rpx;
 }

@@ -1,20 +1,28 @@
+<view class="osbar dither">
+  <view class="os-l">
+    <view class="os-mark">
+      <view class="mk mk-blue"></view><view class="mk mk-cyan"></view><view class="mk mk-cyan"></view><view class="mk mk-blue"></view>
+    </view>
+    <text class="os-name">邻里 OS</text>
+    <text class="os-ver">v2.1</text>
+  </view>
+  <view class="os-r">
+    <text class="os-dot">●</text>
+    <text class="os-status">NET:OK</text>
+  </view>
+</view>
+
 <view class="hero">
-  <view class="aurora"></view>
-  <view class="hero-inner">
-    <view class="brand">
-      <text class="brand-title">邻里</text>
-      <text class="brand-sub">把不再需要的东西，分享给下一位邻居</text>
-    </view>
-    <view class="glass search-box">
-      <text class="s-icon">⌕</text>
-      <input class="search" placeholder="搜索闲置或邻居" value="{{keyword}}"
-             bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
-    </view>
-    <view class="chips">
-      <view wx:for="{{types}}" wx:key="v"
-            class="chip {{curType===item.v?'active':''}}"
-            bindtap="onTypeTap" data-type="{{item.v}}">{{item.label}}</view>
-    </view>
+  <text class="brand">把闲置，交给下一位邻居</text>
+  <view class="search-box">
+    <text class="s-icon">⌖</text>
+    <input class="search" placeholder="搜索闲置或邻居…" value="{{keyword}}"
+           bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
+  </view>
+  <view class="chips">
+    <view wx:for="{{types}}" wx:key="v"
+          class="chip {{curType===item.v?'active':''}}"
+          bindtap="onTypeTap" data-type="{{item.v}}">{{item.label}}</view>
   </view>
 </view>
 
@@ -24,7 +32,7 @@
       <image wx:if="{{item.image}}" class="media-img" src="{{item.image}}" mode="aspectFill" />
       <view wx:else class="media-img missing"></view>
     </view>
-    <view class="cell-title">{{item.title}}</view>
+    <text class="cell-title">{{item.title}}</text>
     <view class="cell-foot">
       <text class="price-small" wx:if="{{item.item_type==='sale'||item.item_type==='rent'}}">¥{{item.price}}</text>
       <text class="borrow" wx:else>可借</text>
@@ -38,6 +46,6 @@
 
 <view class="footer" wx:if="{{loading}}">加载中…</view>
 <view class="empty" wx:if="{{items.length===0 && !loading}}">
-  <text class="empty-title">这里还空着</text>
-  换个筛选或关键词再看看
+  <text class="empty-title">目录为空</text>
+  换一组筛选，或发布一件闲置
 </view>

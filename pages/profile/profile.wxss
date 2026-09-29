@@ -1,8 +1,9 @@
 .profile-card {
-  padding: 28rpx;
+  padding: 30rpx 28rpx;
+  margin-top: 24rpx;
 }
 .tip {
-  margin-bottom: 28rpx;
+  margin-bottom: 24rpx;
 }
 .tip .tag {
   font-size: 24rpx;
@@ -10,5 +11,10 @@
 .field {
   width: 100%;
   display: block;
-  margin-bottom: 22rpx;
+  margin-bottom: 20rpx;
+}
+.form .btn-primary {
+  height: 96rpx;
+  line-height: 96rpx;
+  margin-top: 10rpx;
 }

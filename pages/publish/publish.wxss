@@ -27,18 +27,18 @@
   width: 100%;
 }
 .picker-label {
-  color: var(--ink-soft);
+  color: var(--steel);
   font-size: 28rpx;
 }
 .picker-value {
   margin-left: 20rpx;
-  color: var(--ink);
+  color: var(--whit);
   font-size: 28rpx;
   font-weight: 600;
 }
 .arrow {
   margin-left: auto;
-  color: var(--ink-faint);
+  color: var(--steel);
   font-size: 40rpx;
   line-height: 1;
   font-weight: 300;
@@ -49,17 +49,17 @@
   justify-content: center;
   height: 228rpx;
   border: 2rpx dashed var(--line);
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 22rpx;
+  background: var(--navy);
+  box-shadow: 3rpx 3rpx 0 var(--pix);
   overflow: hidden;
   margin-bottom: 26rpx;
 }
 .img-preview {
   width: 100%;
   height: 100%;
-  border-radius: 22rpx;
 }
 .img-empty {
-  color: var(--ink-faint);
+  color: var(--steel);
   font-size: 26rpx;
+  letter-spacing: 1rpx;
 }
