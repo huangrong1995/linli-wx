@@ -11,17 +11,17 @@
     "pages/profile/profile"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#1F3B31",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "邻里闲置",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#F2EBD9",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F6F2",
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
-    "color": "#7B837A",
-    "selectedColor": "#1F3B31",
-    "backgroundColor": "#FFFDF6",
-    "borderStyle": "white",
+    "color": "#A6AEA8",
+    "selectedColor": "#0E6B46",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
     "list": [
       { "pagePath": "pages/index/index", "text": "闲置" },
       { "pagePath": "pages/mine/mine", "text": "我的" }

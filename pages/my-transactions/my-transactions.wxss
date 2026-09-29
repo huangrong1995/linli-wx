@@ -1,12 +1,12 @@
 .tabs {
   display: flex;
   gap: 14rpx;
-  padding: 20rpx 24rpx 0;
+  padding: 24rpx 24rpx 0;
 }
 .tab-note {
-  color: var(--muted);
+  color: var(--ink-soft);
   font-size: 24rpx;
-  padding: 16rpx 30rpx 4rpx;
+  padding: 16rpx 28rpx 4rpx;
 }
 .tx-row {
   display: flex;
@@ -24,7 +24,7 @@
   white-space: nowrap;
 }
 .tx-type {
-  color: var(--muted);
+  color: var(--ink-faint);
   font-size: 24rpx;
   flex-shrink: 0;
 }
@@ -37,16 +37,16 @@
   font-size: 26rpx;
 }
 .tx-peer {
-  color: var(--muted);
+  color: var(--ink-faint);
   font-size: 24rpx;
   margin-left: auto;
 }
 .msg {
-  margin-top: 14rpx;
-  padding: 18rpx 20rpx;
-  background: #F4F0E1;
-  border-radius: 8rpx;
-  color: var(--ink);
+  margin-top: 16rpx;
+  padding: 18rpx 22rpx;
+  background: var(--canvas);
+  border-radius: 14rpx;
+  color: var(--ink-soft);
   font-size: 26rpx;
 }
 .actions {

@@ -1,64 +1,102 @@
 .sheet {
-  margin: 24rpx;
-  overflow: hidden;
+  margin: 24rpx 24rpx 0;
   padding: 0;
+  overflow: hidden;
 }
 .hero {
   width: 100%;
-  height: 420rpx;
+  height: 440rpx;
   display: block;
+  background: linear-gradient(135deg, #EDF0EB, #E3E8E2);
 }
-.header {
+.head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16rpx;
   padding: 28rpx 28rpx 0;
 }
-.title {
-  font-size: 36rpx;
-  font-weight: 600;
-  color: var(--ink);
-  flex: 1;
+.head .tag {
+  flex-shrink: 0;
+  margin-top: 6rpx;
 }
-.price-row {
+.title {
+  flex: 1;
+  font-size: 38rpx;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.price-band {
   display: flex;
   align-items: center;
   gap: 16rpx;
-  padding: 20rpx 28rpx 0;
+  padding: 20rpx 28rpx 4rpx;
 }
-.price-tag {
-  color: var(--vermilion);
-  font-size: 40rpx;
-  font-weight: 700;
-  font-family: -apple-system, "PingFang SC", sans-serif;
+.borrow {
+  color: var(--spruce);
+  font-weight: 650;
+  font-size: 34rpx;
 }
-.borrow-note {
-  color: var(--stem);
-  font-size: 30rpx;
-  font-weight: 600;
+.divider {
+  height: 1rpx;
+  background: var(--line-soft);
+  margin: 24rpx 28rpx;
 }
 .desc {
-  padding: 24rpx 28rpx;
+  padding: 0 28rpx;
   color: var(--ink);
-  line-height: 1.7;
+  line-height: 1.75;
   font-size: 28rpx;
 }
-.owner {
-  margin: 0 28rpx 24rpx;
-  padding: 22rpx 24rpx;
-  background: #F4F0E1;
-  border-radius: 10rpx;
+.spec {
+  padding: 0 28rpx 28rpx;
 }
-.owner-line {
-  color: var(--muted);
+.spec-row {
+  display: flex;
+  align-items: baseline;
+  gap: 20rpx;
+  padding: 10rpx 0;
+}
+.spec-k {
   font-size: 24rpx;
-  line-height: 1.8;
+  color: var(--ink-faint);
+  width: 72rpx;
 }
+.spec-v {
+  flex: 1;
+  color: var(--ink-soft);
+  font-size: 27rpx;
+}
+
+/* 底部吸底操作栏 */
+.spacer {
+  height: calc(160rpx + env(safe-area-inset-bottom));
+}
+.actionbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 20rpx;
+  padding: 20rpx 24rpx calc(20rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1rpx solid var(--line-soft);
+  z-index: 5;
+}
+.act {
+  flex: 1;
+  margin-top: 0;
+  height: 92rpx;
+  line-height: 92rpx;
+  padding: 0;
+}
+.act.btn-primary { flex: 1.4; }
 
 .mask {
   position: fixed;
   inset: 0;
-  background: rgba(22, 44, 36, 0.5);
+  background: rgba(27, 42, 35, 0.45);
   z-index: 10;
 }
 .modal {
@@ -66,23 +104,19 @@
   left: 48rpx;
   right: 48rpx;
   top: 26%;
-  background: var(--card);
-  border-radius: 16rpx;
+  background: var(--surface);
+  border-radius: 24rpx;
   padding: 36rpx;
   z-index: 11;
-  box-shadow: 0 12rpx 40rpx rgba(22, 44, 36, 0.25);
+  box-shadow: 0 16rpx 48rpx rgba(27, 42, 35, 0.2);
 }
 .modal-title {
   font-size: 32rpx;
-  font-weight: 600;
-  margin-bottom: 24rpx;
+  font-weight: 650;
+  margin-bottom: 20rpx;
   color: var(--ink);
 }
 .modal textarea {
-  width: 100%;
   height: 180rpx;
-  margin-bottom: 12rpx;
-}
-.modal .btn-ghost {
-  margin-top: 16rpx;
+  margin-bottom: 8rpx;
 }

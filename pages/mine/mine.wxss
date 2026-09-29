@@ -2,19 +2,20 @@
   display: flex;
   align-items: center;
   gap: 24rpx;
-  margin-bottom: 8rpx;
+  margin: 24rpx 24rpx 20rpx;
+  padding: 30rpx 28rpx;
 }
 .avatar {
   width: 96rpx;
   height: 96rpx;
   border-radius: 50%;
-  background: var(--forest);
-  color: #F5F1E3;
+  background: var(--tint);
+  color: var(--spruce);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 40rpx;
-  font-weight: 600;
+  font-weight: 650;
   flex-shrink: 0;
 }
 .profile-body {
@@ -28,17 +29,18 @@
 }
 .name {
   font-size: 34rpx;
-  font-weight: 600;
+  font-weight: 650;
   color: var(--ink);
 }
 .meta {
-  margin-top: 8rpx;
-  color: var(--muted);
+  margin-top: 6rpx;
+  color: var(--ink-soft);
   font-size: 26rpx;
 }
 
 .group {
-  padding: 0 26rpx;
+  margin: 0 24rpx 24rpx;
+  padding: 0 28rpx;
 }
 .menu {
   position: relative;
@@ -47,23 +49,33 @@
   padding: 30rpx 0;
   color: var(--ink);
   font-size: 30rpx;
-  border-bottom: 1rpx solid rgba(31, 59, 49, 0.08);
+  border-bottom: 1rpx solid var(--line-soft);
 }
 .menu.last {
   border-bottom: none;
 }
+.menu:active {
+  opacity: 0.6;
+}
 .arrow {
   margin-left: auto;
-  color: var(--faint);
+  color: var(--ink-faint);
   font-size: 40rpx;
   line-height: 1;
 }
 .badge {
   margin-left: 12rpx;
-  background: var(--vermilion);
+  background: var(--coral);
   color: #FFF;
   font-size: 20rpx;
   line-height: 1;
-  padding: 6rpx 12rpx;
+  padding: 6rpx 14rpx;
   border-radius: 999rpx;
+  font-weight: 600;
+}
+
+.btn-primary {
+  margin: 8rpx 24rpx 40rpx;
+  height: 96rpx;
+  line-height: 96rpx;
 }

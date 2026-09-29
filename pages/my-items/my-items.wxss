@@ -2,21 +2,22 @@
   display: flex;
   gap: 22rpx;
   align-items: stretch;
+  margin: 0 24rpx 20rpx;
 }
 .slip-thumb {
-  width: 150rpx;
-  height: 150rpx;
-  border-radius: 8rpx;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 20rpx;
   flex-shrink: 0;
+  background: linear-gradient(135deg, #EDF0EB, #E3E8E2);
 }
 .slip-thumb-empty {
-  background: #EFE9D8;
-  color: var(--faint);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 26rpx;
   letter-spacing: 4rpx;
+  color: var(--ink-faint);
 }
 .slip-body {
   flex: 1;
@@ -24,6 +25,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-width: 0;
+  padding: 4rpx 0;
 }
 .slip-top {
   display: flex;
@@ -51,4 +53,5 @@
   padding: 10rpx 22rpx;
   font-size: 24rpx;
   border-radius: 999rpx;
+  color: var(--ink-soft);
 }

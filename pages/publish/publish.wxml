@@ -14,5 +14,5 @@
     <image wx:if="{{image}}" class="img-preview" src="{{image}}" mode="aspectFill" />
     <text wx:else class="img-empty">＋ 贴一张闲置的照片</text>
   </view>
-  <button class="btn-primary" bindtap="submit">钉上告示板</button>
+  <button class="btn-primary" bindtap="submit">发布闲置</button>
 </view>

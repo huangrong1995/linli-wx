@@ -7,7 +7,7 @@
   gap: 16rpx;
 }
 .n-time {
-  color: var(--faint);
+  color: var(--ink-faint);
   font-size: 22rpx;
   margin-left: auto;
 }

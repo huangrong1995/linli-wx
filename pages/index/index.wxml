@@ -1,34 +1,34 @@
-<view class="board">
+<view class="topbar">
+  <view class="search-box">
+    <text class="s-icon">⌕</text>
+    <input class="search" placeholder="搜索邻居的闲置" value="{{keyword}}"
+           bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
+  </view>
   <view class="chips">
     <view wx:for="{{types}}" wx:key="v"
           class="chip {{curType===item.v?'active':''}}"
           bindtap="onTypeTap" data-type="{{item.v}}">{{item.label}}</view>
   </view>
-  <view class="search-wrap">
-    <text class="search-glyph">⌕</text>
-    <input class="search" placeholder="找邻居的闲置" value="{{keyword}}"
-           bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
-  </view>
 </view>
 
-<view wx:for="{{items}}" wx:key="id" class="card slip" bindtap="onItemTap" data-id="{{item.id}}">
-  <image wx:if="{{item.image}}" class="slip-thumb" src="{{item.image}}" mode="aspectFill" />
-  <view wx:else class="slip-thumb slip-thumb-empty">闲置</view>
-  <view class="slip-body">
-    <view class="slip-top">
-      <text class="slip-title">{{item.title}}</text>
+<view class="grid">
+  <view wx:for="{{items}}" wx:key="id" class="cell" bindtap="onItemTap" data-id="{{item.id}}">
+    <view class="media">
+      <image wx:if="{{item.image}}" class="media-img" src="{{item.image}}" mode="aspectFill" />
+      <view wx:else class="media-img missing"></view>
+    </view>
+    <view class="cell-title">{{item.title}}</view>
+    <view class="cell-foot">
       <text class="price-small" wx:if="{{item.item_type==='sale'||item.item_type==='rent'}}">¥{{item.price}}</text>
-    </view>
-    <view class="slip-meta">
+      <text class="borrow" wx:else>免费借用</text>
       <text class="tag">{{typeLabel[item.item_type]}}</text>
-      <text class="slip-owner">{{item.owner.community}}{{item.owner.building}}栋</text>
-      <text class="fav" catchtap="onFavTap" data-id="{{item.id}}">{{item._fav?'♥':'♡'}}</text>
     </view>
+    <view class="fav {{item._fav?'on':''}}" catchtap="onFavTap" data-id="{{item.id}}">{{item._fav?'♥':'♡'}}</view>
   </view>
 </view>
 
-<view class="footer" wx:if="{{loading}}">正在翻告示板…</view>
+<view class="footer" wx:if="{{loading}}">加载中…</view>
 <view class="empty" wx:if="{{items.length===0 && !loading}}">
-  <text class="empty-title">告示板上还没人钉东西</text>
-  暂时没有符合的闲置物品
+  <text class="empty-title">暂时没有匹配的闲置</text>
+  换个筛选或关键词试试
 </view>
