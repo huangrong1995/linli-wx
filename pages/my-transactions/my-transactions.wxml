@@ -1,1 +1,16 @@
-<view class="empty">占位页面</view>
+<view class="tabs">
+  <view class="tab {{tab==='req'?'active':''}}" bindtap="switchTab" data-tab="req">我发起的</view>
+  <view class="tab {{tab==='recv'?'active':''}}" bindtap="switchTab" data-tab="recv">我收到的</view>
+</view>
+
+<view wx:for="{{list}}" wx:key="id" class="card">
+  <view class="row">{{item.item.title}} · {{transTypeLabel[item.trans_type]}}</view>
+  <view class="row sub">状态：{{statusLabel[item.status]}} · {{item.requester.community}}{{item.requester.building}}栋</view>
+  <view class="msg" wx:if="{{item.message}}">留言：{{item.message}}</view>
+  <view class="actions">
+    <button size="mini" wx:if="{{item.canConfirm}}" bindtap="act" data-idx="{{index}}" data-verb="confirm">确认</button>
+    <button size="mini" wx:if="{{item.canComplete}}" bindtap="act" data-idx="{{index}}" data-verb="complete">完成</button>
+    <button size="mini" wx:if="{{item.canCancel}}" bindtap="act" data-idx="{{index}}" data-verb="cancel">取消</button>
+  </view>
+</view>
+<view class="empty" wx:if="{{list.length===0}}">暂无记录</view>
