@@ -1,13 +1,13 @@
 <view class="hero">
-  <view class="lamp"></view>
+  <view class="aurora"></view>
   <view class="hero-inner">
     <view class="brand">
-      <text class="brand-title">邻里闲置</text>
-      <text class="brand-sub">把不再用的东西，交给下一位邻居</text>
+      <text class="brand-title">邻里</text>
+      <text class="brand-sub">把不再需要的东西，分享给下一位邻居</text>
     </view>
-    <view class="search-box">
+    <view class="glass search-box">
       <text class="s-icon">⌕</text>
-      <input class="search" placeholder="在邻里间找找…" value="{{keyword}}"
+      <input class="search" placeholder="搜索闲置或邻居" value="{{keyword}}"
              bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
     </view>
     <view class="chips">
@@ -34,8 +34,10 @@
   </view>
 </view>
 
-<view class="footer" wx:if="{{loading}}">入夜了，邻居们还在收拾…</view>
+<view class="fab" bindtap="onPublish"><text class="fab-plus">＋</text></view>
+
+<view class="footer" wx:if="{{loading}}">加载中…</view>
 <view class="empty" wx:if="{{items.length===0 && !loading}}">
-  <text class="empty-title">这栋楼暂时没有闲置</text>
-  换个筛选或关键词，看看隔壁
+  <text class="empty-title">这里还空着</text>
+  换个筛选或关键词再看看
 </view>

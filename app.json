@@ -11,21 +11,19 @@
     "pages/profile/profile"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#1B2730",
-    "navigationBarTitleText": "邻里闲置",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#1B2730",
-    "backgroundColorTop": "#1B2730",
-    "backgroundColorBottom": "#1B2730",
+    "navigationBarBackgroundColor": "#F4F5F9",
+    "navigationBarTitleText": "邻里",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4F5F9",
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
-    "color": "#94A89A",
-    "selectedColor": "#E8A33D",
-    "backgroundColor": "#162019",
-    "borderStyle": "black",
+    "color": "#98A0AC",
+    "selectedColor": "#6366F1",
+    "backgroundColor": "#F8F9FC",
+    "borderStyle": "white",
     "list": [
-      { "pagePath": "pages/index/index", "text": "闲置" },
+      { "pagePath": "pages/index/index", "text": "逛逛" },
       { "pagePath": "pages/mine/mine", "text": "我的" }
     ]
   },

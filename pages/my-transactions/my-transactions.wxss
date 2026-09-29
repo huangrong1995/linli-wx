@@ -4,7 +4,7 @@
   padding: 24rpx 24rpx 0;
 }
 .tab-note {
-  color: var(--moss);
+  color: var(--ink-soft);
   font-size: 24rpx;
   padding: 16rpx 28rpx 4rpx;
 }
@@ -15,16 +15,16 @@
   gap: 12rpx;
 }
 .tx-title {
-  font-size: 30rpx;
-  font-weight: 600;
-  color: var(--plaster);
+  font-size: 29rpx;
+  font-weight: 500;
+  color: var(--ink);
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .tx-type {
-  color: var(--moss);
+  color: var(--ink-faint);
   font-size: 24rpx;
   flex-shrink: 0;
 }
@@ -33,20 +33,20 @@
   display: flex;
   align-items: center;
   gap: 16rpx;
-  color: var(--plaster);
+  color: var(--ink);
   font-size: 26rpx;
 }
 .tx-peer {
-  color: var(--moss);
+  color: var(--ink-faint);
   font-size: 24rpx;
   margin-left: auto;
 }
 .msg {
   margin-top: 16rpx;
   padding: 18rpx 22rpx;
-  background: rgba(27, 39, 48, 0.6);
-  border-radius: 14rpx;
-  color: var(--moss);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16rpx;
+  color: var(--ink-soft);
   font-size: 26rpx;
 }
 .actions {

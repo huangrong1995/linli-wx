@@ -40,6 +40,13 @@ Page({
   onKeyword(e) { this.setData({ keyword: e.detail.value }); },
   onSearch() { this.refresh(); },
   onItemTap(e) { wx.navigateTo({ url: `/pages/detail/detail?id=${e.currentTarget.dataset.id}` }); },
+  onPublish() {
+    if (!auth.isApproved()) {
+      wx.showToast({ title: '需审核通过后才能发布', icon: 'none' });
+      return;
+    }
+    wx.navigateTo({ url: '/pages/publish/publish' });
+  },
   _loadFavs() {
     if (!auth.isApproved()) return;
     request({ url: '/api/items/favorites/' }).then((data) => {
