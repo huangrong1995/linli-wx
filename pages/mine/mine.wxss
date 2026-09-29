@@ -1,25 +1,69 @@
 .profile {
   display: flex;
-  flex-direction: column;
-  gap: 8rpx;
+  align-items: center;
+  gap: 24rpx;
+  margin-bottom: 8rpx;
+}
+.avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #F5F1E3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.profile-body {
+  flex: 1;
+  min-width: 0;
+}
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
 }
 .name {
   font-size: 34rpx;
   font-weight: 600;
-}
-.status {
-  align-self: flex-start;
-  background: #ecfdf5;
-  color: #16a34a;
-  padding: 4rpx 16rpx;
-  border-radius: 8rpx;
-  font-size: 24rpx;
+  color: var(--ink);
 }
 .meta {
-  color: #999;
+  margin-top: 8rpx;
+  color: var(--muted);
+  font-size: 26rpx;
+}
+
+.group {
+  padding: 0 26rpx;
 }
 .menu {
-  display: block;
-  color: #333;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  color: var(--ink);
   font-size: 30rpx;
+  border-bottom: 1rpx solid rgba(31, 59, 49, 0.08);
+}
+.menu.last {
+  border-bottom: none;
+}
+.arrow {
+  margin-left: auto;
+  color: var(--faint);
+  font-size: 40rpx;
+  line-height: 1;
+}
+.badge {
+  margin-left: 12rpx;
+  background: var(--vermilion);
+  color: #FFF;
+  font-size: 20rpx;
+  line-height: 1;
+  padding: 6rpx 12rpx;
+  border-radius: 999rpx;
 }

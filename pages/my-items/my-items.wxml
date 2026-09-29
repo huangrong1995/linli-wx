@@ -1,6 +1,18 @@
-<view wx:for="{{items}}" wx:key="id" class="card" bindtap="onItemTap" data-id="{{item.id}}">
-  <view class="row">{{item.title}}</view>
-  <view class="row sub">状态：{{statusLabel[item.status]}} · {{item.item_type==='lend' ? '借用' : '¥'+item.price}}</view>
-  <button size="mini" catchtap="onDelete" data-id="{{item.id}}">删除</button>
+<view wx:for="{{items}}" wx:key="id" class="card slip" bindtap="onItemTap" data-id="{{item.id}}">
+  <image wx:if="{{item.image}}" class="slip-thumb" src="{{item.image}}" mode="aspectFill" />
+  <view wx:else class="slip-thumb slip-thumb-empty">闲置</view>
+  <view class="slip-body">
+    <view class="slip-top">
+      <text class="slip-title">{{item.title}}</text>
+      <text class="price-small" wx:if="{{item.item_type==='sale'||item.item_type==='rent'}}">¥{{item.price}}</text>
+    </view>
+    <view class="slip-stat">
+      <text class="tag {{item.status==='available'?'':'tag-warn'}}">{{statusLabel[item.status]}}</text>
+      <button class="btn-ghost mini" catchtap="onDelete" data-id="{{item.id}}">删除</button>
+    </view>
+  </view>
 </view>
-<view class="empty" wx:if="{{items.length===0}}">还没有发布物品</view>
+<view class="empty" wx:if="{{items.length===0}}">
+  <text class="empty-title">还没发布过闲置</text>
+  想把不用的东西送给邻居，来发布一条吧
+</view>

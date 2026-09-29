@@ -1,9 +1,15 @@
-<view class="form">
-  <view class="tip" wx:if="{{status}}">当前状态：{{status==='approved'?'已通过':(status==='pending'?'等待审核':'未通过')}}</view>
-  <input class="field" type="number" placeholder="联系电话" value="{{form.phone}}" bindinput="onPhone" />
-  <input class="field" placeholder="小区" value="{{form.community}}" bindinput="onCommunity" />
-  <input class="field" placeholder="楼栋" value="{{form.building}}" bindinput="onBuilding" />
-  <input class="field" placeholder="门牌号" value="{{form.room}}" bindinput="onRoom" />
-  <input class="field" placeholder="邮箱（可选）" value="{{form.email}}" bindinput="onEmail" />
-  <button class="btn-primary" bindtap="submit">保存</button>
+<view class="card profile-card">
+  <view class="tip" wx:if="{{status}}">
+    <text class="tag {{status==='approved'?'':(status==='pending'?'tag-muted':'tag-warn')}}">
+      {{status==='approved'?'已通过，可以发布闲置':(status==='pending'?'等待审核中':'未通过，请完善资料')}}
+    </text>
+  </view>
+  <view class="form">
+    <input class="field" type="number" placeholder="联系电话" value="{{form.phone}}" bindinput="onPhone" />
+    <input class="field" placeholder="小区" value="{{form.community}}" bindinput="onCommunity" />
+    <input class="field" placeholder="楼栋" value="{{form.building}}" bindinput="onBuilding" />
+    <input class="field" placeholder="门牌号" value="{{form.room}}" bindinput="onRoom" />
+    <input class="field" placeholder="邮箱（可选）" value="{{form.email}}" bindinput="onEmail" />
+    <button class="btn-primary" bindtap="submit">保存资料</button>
+  </view>
 </view>

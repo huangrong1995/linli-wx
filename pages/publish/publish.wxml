@@ -1,11 +1,18 @@
-<view class="form">
-  <picker mode="selector" range="{{types}}" range-key="label" bindchange="onType">
-    <view class="field">类型：{{types[curTypeIdx].label}}</view>
+<view class="form card">
+  <picker class="field picker" mode="selector" range="{{types}}" range-key="label" bindchange="onType">
+    <view class="picker-row">
+      <text class="picker-label">类型</text>
+      <text class="picker-value">{{types[curTypeIdx].label}}</text>
+      <text class="arrow">›</text>
+    </view>
   </picker>
   <input class="field" placeholder="名称" value="{{title}}" bindinput="onTitle" />
-  <textarea class="field" placeholder="描述" value="{{description}}" bindinput="onDesc" />
+  <textarea class="field tall" placeholder="描述一下这件闲置" value="{{description}}" bindinput="onDesc" />
   <input class="field" type="digit" placeholder="价格（借用可填0）" value="{{price}}" bindinput="onPrice" />
   <input class="field" type="number" placeholder="联系电话" value="{{phone}}" bindinput="onPhone" />
-  <view class="field" bindtap="onChooseImage">选图：{{image?'已选1张':'点击选择'}}</view>
-  <button class="btn-primary" bindtap="submit">发布</button>
+  <view class="field img-field" bindtap="onChooseImage">
+    <image wx:if="{{image}}" class="img-preview" src="{{image}}" mode="aspectFill" />
+    <text wx:else class="img-empty">＋ 贴一张闲置的照片</text>
+  </view>
+  <button class="btn-primary" bindtap="submit">钉上告示板</button>
 </view>

@@ -1,24 +1,33 @@
-<view class="card">
-  <view class="pic" wx:if="{{item.image}}"><image src="{{item.image}}" mode="aspectFill" /></view>
+<view class="card sheet">
+  <image wx:if="{{item.image}}" class="hero" src="{{item.image}}" mode="aspectFill" />
   <view class="header">
     <text class="title">{{item.title}}</text>
     <text class="tag">{{typeLabel[item.item_type]}}</text>
   </view>
-  <view class="row" wx:if="{{item.item_type!=='lend'}}">价格：¥{{item.price}}</view>
-  <view class="row">状态：{{statusLabel[item.status]}}</view>
-  <view class="desc">{{item.description}}</view>
-  <view class="owner">
-    联系人：{{item.owner.community}}{{item.owner.building}}栋{{item.owner.room}} · {{item.owner.username}}<br/>
-    电话：{{item.contact_phone}}
+  <view class="price-row" wx:if="{{item.item_type!=='lend'}}">
+    <text class="price-tag">¥{{item.price}}</text>
+    <text class="tag {{item.status==='available'?'':'tag-warn'}}">{{statusLabel[item.status]}}</text>
   </view>
+  <view class="price-row" wx:else>
+    <text class="borrow-note">免费借用</text>
+    <text class="tag {{item.status==='available'?'':'tag-warn'}}">{{statusLabel[item.status]}}</text>
+  </view>
+
+  <view class="desc">{{item.description}}</view>
+
+  <view class="owner">
+    <view class="owner-line">邻里 {{item.owner.community}}{{item.owner.building}}栋{{item.owner.room}} · {{item.owner.username}}</view>
+    <view class="owner-line">电话 {{item.contact_phone}}</view>
+  </view>
+
   <button class="btn-primary" wx:if="{{!item.is_owner}}" bindtap="onFavTap">{{item.is_favorited?'取消收藏':'收藏'}}</button>
-  <button class="btn-primary" wx:if="{{!item.is_owner}}" bindtap="onTransTap">发起交易</button>
+  <button class="btn-ghost" wx:if="{{!item.is_owner}}" bindtap="onTransTap">发起交易</button>
 </view>
 
 <view class="mask" wx:if="{{showModal}}" bindtap="hideModal"></view>
 <view class="modal" wx:if="{{showModal}}">
-  <view class="modal-title">发起交易</view>
+  <view class="modal-title">给邻里写张纸条</view>
   <textarea placeholder="给主人留言（可选）" value="{{message}}" bindinput="onMessage" />
-  <button class="btn-primary" bindtap="submitTrans">发送请求</button>
-  <button bindtap="hideModal">取消</button>
+  <button class="btn-primary" bindtap="submitTrans">送出请求</button>
+  <button class="btn-ghost" bindtap="hideModal">先不着急</button>
 </view>

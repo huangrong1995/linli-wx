@@ -1,31 +1,155 @@
+/* ===== 邻里告示板 · 设计系统 =====
+ * 概念：社区公告板，物品是钉在板上的纸签。
+ * 配色：深林绿(chrome) / 亚麻纸(背景) / 纸签(卡片) / 墨绿(正文) / 鼠尾草(次要) / 朱红(价签)
+ */
 page {
-  background: #f5f5f5;
+  --forest: #1F3B31;      /* 主色：导航、按钮、选中 */
+  --forest-deep: #162C24; /* 按下/描边加深 */
+  --paper: #F2EBD9;       /* 板面背景 */
+  --card: #FFFDF6;        /* 纸签/卡片 */
+  --ink: #22302A;         /* 正文 */
+  --muted: #7B837A;       /* 次要文字 */
+  --faint: #C7C4B8;       /* 占位/分隔 */
+  --vermilion: #C4502F;   /* 价签/强调 */
+  --stem: #3E7B56;        /* 正向状态 */
+
+  background: var(--paper);
+  color: var(--ink);
   font-size: 28rpx;
-  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
 }
-.btn-primary {
-  background: #16a34a;
-  color: #fff;
-  border-radius: 12rpx;
-  margin-top: 24rpx;
-}
+
+/* 纸签卡片：四角略方、纸感微影 */
 .card {
-  background: #fff;
-  border-radius: 16rpx;
-  padding: 24rpx;
-  margin: 16rpx;
+  background: var(--card);
+  border-radius: 10rpx;
+  padding: 26rpx;
+  margin: 18rpx 24rpx;
+  border: 1rpx solid rgba(31, 59, 49, 0.08);
+  box-shadow: 0 3rpx 10rpx rgba(31, 59, 49, 0.07);
+  position: relative;
 }
-.empty {
-  text-align: center;
-  color: #999;
-  padding: 80rpx 0;
+
+/* 价签：朱红、醒目、带一角 */
+.price {
+  color: var(--vermilion);
+  font-weight: 600;
+  font-size: 32rpx;
 }
+.price-small {
+  color: var(--vermilion);
+  font-weight: 600;
+  font-size: 28rpx;
+}
+
+/* 盖戳式状态标签 */
 .tag {
   display: inline-block;
   font-size: 22rpx;
-  padding: 4rpx 16rpx;
-  border-radius: 8rpx;
-  background: #ecfdf5;
-  color: #16a34a;
-  margin-right: 12rpx;
+  line-height: 1;
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: rgba(62, 123, 86, 0.12);
+  color: var(--stem);
+  border: 1rpx solid rgba(62, 123, 86, 0.35);
+}
+.tag-warn {
+  background: rgba(196, 80, 47, 0.1);
+  color: var(--vermilion);
+  border-color: rgba(196, 80, 47, 0.3);
+}
+.tag-muted {
+  background: rgba(123, 131, 122, 0.12);
+  color: var(--muted);
+  border-color: rgba(123, 131, 122, 0.3);
+}
+
+/* 筛选片（chip） */
+.chip {
+  display: inline-block;
+  padding: 12rpx 30rpx;
+  border-radius: 999rpx;
+  background: var(--card);
+  color: var(--muted);
+  border: 1rpx solid rgba(31, 59, 49, 0.14);
+  font-size: 26rpx;
+  transition: all 0.2s;
+}
+.chip.active {
+  background: var(--forest);
+  color: #F5F1E3;
+  border-color: var(--forest);
+  font-weight: 600;
+}
+
+/* 主按钮：林绿 */
+.btn-primary {
+  background: var(--forest);
+  color: #F5F1E3;
+  border-radius: 999rpx;
+  margin-top: 24rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.btn-primary::after {
+  border: none;
+}
+.btn-primary:active {
+  background: var(--forest-deep);
+}
+
+/* 次要按钮：纸签描边 */
+.btn-ghost {
+  background: var(--card);
+  color: var(--ink);
+  border: 1rpx solid rgba(31, 59, 49, 0.2);
+  border-radius: 999rpx;
+  font-size: 28rpx;
+}
+.btn-ghost::after {
+  border: none;
+}
+
+/* 输入：纸槽 */
+input, textarea {
+  background: var(--card);
+  border: 1rpx solid rgba(31, 59, 49, 0.16);
+  border-radius: 10rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: var(--ink);
+  box-sizing: border-box;
+  width: 100%;
+}
+input:focus, textarea:focus {
+  border-color: var(--stem);
+}
+
+/* 空态：邀请动作而非情绪 */
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 90rpx 48rpx;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+.empty .empty-title {
+  display: block;
+  color: var(--ink);
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+/* 区块标题：左对齐、带一小段板钉线 */
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 8rpx 0;
+  margin: 24rpx 24rpx 8rpx;
+  border-left: 6rpx solid var(--vermilion);
+  padding-left: 18rpx;
+  letter-spacing: 2rpx;
 }

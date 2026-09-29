@@ -1,14 +1,26 @@
 <view class="card profile">
-  <text class="name">{{profile.username || '未登录'}}</text>
-  <text class="status" wx:if="{{profile}}">{{statusLabel[profile.status]}}</text>
-  <view class="meta" wx:if="{{profile}}">{{profile.community}}{{profile.building}}栋{{profile.room}}</view>
+  <view class="avatar">{{profile._initial || '邻'}}</view>
+  <view class="profile-body">
+    <view class="name-row">
+      <text class="name">{{profile.username || '未登录'}}</text>
+      <text wx:if="{{profile}}" class="tag {{profile._statusClass}}">{{statusLabel[profile.status]}}</text>
+    </view>
+    <view class="meta" wx:if="{{profile}}">{{profile.community}}{{profile.building}}栋{{profile.room}}</view>
+    <view class="meta" wx:else>完善资料，解锁邻里互借</view>
+  </view>
 </view>
 
-<navigator class="card menu" url="/pages/profile/profile">个人资料 / 完善</navigator>
-<navigator class="card menu" url="/pages/publish/publish">发布闲置</navigator>
-<navigator class="card menu" url="/pages/my-items/my-items">我的发布</navigator>
-<navigator class="card menu" url="/pages/favorites/favorites">我的收藏</navigator>
-<navigator class="card menu" url="/pages/my-transactions/my-transactions">我的交易</navigator>
-<navigator class="card menu" url="/pages/notify/notify">通知（{{unread}}）</navigator>
+<view class="card group">
+  <navigator class="menu" url="/pages/profile/profile">个人资料<text class="arrow">›</text></navigator>
+  <navigator class="menu" url="/pages/publish/publish">发布闲置<text class="arrow">›</text></navigator>
+  <navigator class="menu" url="/pages/my-items/my-items">我的发布<text class="arrow">›</text></navigator>
+  <navigator class="menu" url="/pages/favorites/favorites">我的收藏<text class="arrow">›</text></navigator>
+  <navigator class="menu" url="/pages/my-transactions/my-transactions">我的交易<text class="arrow">›</text></navigator>
+  <navigator class="menu last" url="/pages/notify/notify">
+    通知
+    <text class="badge" wx:if="{{unread>0}}">{{unread>99?'99+':unread}}</text>
+    <text class="arrow">›</text>
+  </navigator>
+</view>
 
 <button class="btn-primary" bindtap="onLogout" wx:if="{{profile}}">退出登录</button>

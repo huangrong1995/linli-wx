@@ -1,6 +1,19 @@
-<view wx:for="{{items}}" wx:key="id" class="card" bindtap="onItemTap" data-id="{{item.id}}">
-  <view class="row">{{item.title}}</view>
-  <view class="row sub">{{item.item_type==='lend' ? '借用' : '¥'+item.price}}</view>
-  <button size="mini" catchtap="onUnfav" data-id="{{item.id}}">取消收藏</button>
+<view wx:for="{{items}}" wx:key="id" class="card slip" bindtap="onItemTap" data-id="{{item.id}}">
+  <image wx:if="{{item.image}}" class="slip-thumb" src="{{item.image}}" mode="aspectFill" />
+  <view wx:else class="slip-thumb slip-thumb-empty">闲置</view>
+  <view class="slip-body">
+    <view class="slip-top">
+      <text class="slip-title">{{item.title}}</text>
+      <text class="price-small" wx:if="{{item.item_type==='sale'||item.item_type==='rent'}}">¥{{item.price}}</text>
+      <text class="slip-note" wx:else>免费借用</text>
+    </view>
+    <view class="slip-act">
+      <text class="tag">{{typeLabel[item.item_type]}}</text>
+      <button class="btn-ghost mini" catchtap="onUnfav" data-id="{{item.id}}">取下收藏</button>
+    </view>
+  </view>
 </view>
-<view class="empty" wx:if="{{items.length===0}}">还没有收藏的物品</view>
+<view class="empty" wx:if="{{items.length===0}}">
+  <text class="empty-title">还没有收藏的闲置</text>
+  看到合意的物品，钉一下收藏
+</view>

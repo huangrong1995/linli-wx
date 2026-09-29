@@ -1,16 +1,26 @@
 <view class="tabs">
-  <view class="tab {{tab==='req'?'active':''}}" bindtap="switchTab" data-tab="req">我发起的</view>
-  <view class="tab {{tab==='recv'?'active':''}}" bindtap="switchTab" data-tab="recv">我收到的</view>
+  <view class="chip {{tab==='req'?'active':''}}" bindtap="switchTab" data-tab="req">我发起的</view>
+  <view class="chip {{tab==='recv'?'active':''}}" bindtap="switchTab" data-tab="recv">我收到的</view>
 </view>
+<view class="tab-note">{{tab==='req'?'我向邻居发起的交易请求':'邻居向我发起的交易请求'}}</view>
 
 <view wx:for="{{list}}" wx:key="id" class="card">
-  <view class="row">{{item.item.title}} · {{transTypeLabel[item.trans_type]}}</view>
-  <view class="row sub">状态：{{statusLabel[item.status]}} · {{item.requester.community}}{{item.requester.building}}栋</view>
-  <view class="msg" wx:if="{{item.message}}">留言：{{item.message}}</view>
+  <view class="tx-row">
+    <text class="tx-title">{{item.item.title}}</text>
+    <text class="tx-type">{{transTypeLabel[item.trans_type]}}</text>
+  </view>
+  <view class="tx-sub">
+    状态：<text class="tag {{item.status==='cancelled'?'tag-muted':(item.status==='available'||item.status==='confirmed')?'':'tag-warn'}}">{{statusLabel[item.status]}}</text>
+    <text class="tx-peer">{{item.requester.community}}{{item.requester.building}}栋</text>
+  </view>
+  <view class="msg" wx:if="{{item.message}}">纸条：{{item.message}}</view>
   <view class="actions">
-    <button size="mini" wx:if="{{item.canConfirm}}" bindtap="act" data-idx="{{index}}" data-verb="confirm">确认</button>
-    <button size="mini" wx:if="{{item.canComplete}}" bindtap="act" data-idx="{{index}}" data-verb="complete">完成</button>
-    <button size="mini" wx:if="{{item.canCancel}}" bindtap="act" data-idx="{{index}}" data-verb="cancel">取消</button>
+    <button size="mini" class="btn-primary mini" wx:if="{{item.canConfirm}}" bindtap="act" data-idx="{{index}}" data-verb="confirm">确认</button>
+    <button size="mini" class="btn-primary mini" wx:if="{{item.canComplete}}" bindtap="act" data-idx="{{index}}" data-verb="complete">完成</button>
+    <button size="mini" class="btn-ghost mini" wx:if="{{item.canCancel}}" bindtap="act" data-idx="{{index}}" data-verb="cancel">取消</button>
   </view>
 </view>
-<view class="empty" wx:if="{{list.length===0}}">暂无记录</view>
+<view class="empty" wx:if="{{list.length===0}}">
+  <text class="empty-title">这里还空着</text>
+  交换、借用、出租，都从发起交易开始
+</view>

@@ -1,6 +1,6 @@
 const { request } = require('../../utils/request');
 Page({
-  data: { items: [] },
+  data: { items: [], typeLabel: { sale: '出售', lend: '借用', rent: '出租' } },
   onShow() { this.load(); },
   load() {
     request({ url: '/api/items/favorites/', showLoading: true })

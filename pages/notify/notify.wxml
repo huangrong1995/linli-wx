@@ -1,5 +1,11 @@
-<view wx:for="{{list}}" wx:key="id" class="card {{item.is_read?'read':''}}" bindtap="onTap" data-id="{{item.id}}">
-  <view class="row"><text class="tag">{{item.typeText}}</text>{{item.content}}</view>
-  <view class="time">{{item.created_at}}</view>
+<view wx:for="{{list}}" wx:key="id" class="card notify {{item.is_read?'read':''}}" bindtap="onTap" data-id="{{item.id}}">
+  <view class="n-head">
+    <text class="tag">{{item.typeText}}</text>
+    <text class="n-time">{{item.created_at}}</text>
+  </view>
+  <view class="n-body">{{item.content}}</view>
 </view>
-<view class="empty" wx:if="{{list.length===0}}">暂无通知</view>
+<view class="empty" wx:if="{{list.length===0}}">
+  <text class="empty-title">还没有通知</text>
+  交易有新进展时，会在这里告诉你
+</view>
