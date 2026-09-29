@@ -1,17 +1,14 @@
 .sheet {
   margin: 24rpx 24rpx 0;
   padding: 0;
-  border-width: 2rpx;
+  overflow: hidden;
+  border-radius: 32rpx;
 }
 .hero {
   width: 100%;
-  height: 440rpx;
+  height: 480rpx;
   display: block;
-  background-color: var(--navy-2);
-  background-image:
-    repeating-linear-gradient(45deg,
-      rgba(95, 212, 226, 0.06) 0 3rpx,
-      transparent 3rpx 7rpx);
+  background: linear-gradient(150deg, #E7F0EC, #D9E7E0);
 }
 .head {
   display: flex;
@@ -25,32 +22,31 @@
 }
 .title {
   flex: 1;
-  font-size: 36rpx;
+  font-size: 38rpx;
   font-weight: 700;
-  letter-spacing: 1rpx;
-  color: var(--whit);
+  color: var(--ink);
   line-height: 1.4;
 }
 .price-band {
   display: flex;
   align-items: center;
   gap: 16rpx;
-  padding: 18rpx 28rpx 2rpx;
+  padding: 20rpx 28rpx 4rpx;
 }
 .borrow {
-  color: var(--cyan);
-  font-weight: 700;
-  font-size: 32rpx;
+  color: var(--teal);
+  font-weight: 650;
+  font-size: 34rpx;
 }
 .divider {
-  height: 2rpx;
+  height: 1rpx;
   background: var(--line);
   margin: 24rpx 28rpx;
 }
 .desc {
   padding: 0 28rpx;
-  color: var(--whit);
-  line-height: 1.8;
+  color: var(--ink);
+  line-height: 1.75;
   font-size: 28rpx;
 }
 .spec {
@@ -63,69 +59,65 @@
   padding: 10rpx 0;
 }
 .spec-k {
-  font-size: 23rpx;
-  color: var(--cyan);
-  letter-spacing: 1rpx;
+  font-size: 24rpx;
+  color: var(--faint);
   width: 72rpx;
 }
 .spec-v {
   flex: 1;
-  color: var(--steel);
-  font-size: 26rpx;
+  color: var(--muted);
+  font-size: 27rpx;
 }
 
-/* 悬浮像素操作栏 */
+/* 吸底操作栏 */
 .spacer {
-  height: calc(180rpx + env(safe-area-inset-bottom));
+  height: calc(170rpx + env(safe-area-inset-bottom));
 }
 .actionbar {
   position: fixed;
-  left: 24rpx;
-  right: 24rpx;
-  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  gap: 16rpx;
-  padding: 14rpx;
-  background: var(--ink-2);
-  border: 2rpx solid var(--line);
-  box-shadow: 4rpx 4rpx 0 var(--pix);
-  z-index: 6;
+  gap: 20rpx;
+  padding: 20rpx 24rpx calc(20rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1rpx solid var(--line);
+  z-index: 5;
 }
 .act {
   flex: 1;
   margin-top: 0;
-  height: 92rpx;
-  line-height: 92rpx;
+  height: 96rpx;
+  line-height: 96rpx;
   padding: 0;
-  box-shadow: 3rpx 3rpx 0 var(--pix);
 }
 .act.btn-primary { flex: 1.5; }
 
 .mask {
   position: fixed;
   inset: 0;
-  background: rgba(8, 11, 16, 0.72);
+  background: rgba(34, 38, 42, 0.45);
   z-index: 10;
 }
 .modal {
   position: fixed;
-  left: 36rpx;
-  right: 36rpx;
-  top: 30%;
-  background: var(--navy);
-  border: 2rpx solid var(--line);
-  padding: 32rpx;
+  left: 48rpx;
+  right: 48rpx;
+  top: 28%;
+  background: var(--surface);
+  border-radius: 28rpx;
+  padding: 36rpx;
   z-index: 11;
-  box-shadow: 6rpx 6rpx 0 var(--pix);
+  box-shadow: var(--shadow);
 }
 .modal-title {
-  font-size: 28rpx;
-  font-weight: 700;
-  letter-spacing: 1rpx;
+  font-size: 32rpx;
+  font-weight: 650;
   margin-bottom: 20rpx;
-  color: var(--cyan);
+  color: var(--ink);
 }
 .modal textarea {
-  height: 170rpx;
-  background: var(--navy-2);
+  height: 180rpx;
+  margin-bottom: 8rpx;
 }

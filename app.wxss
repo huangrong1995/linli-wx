@@ -1,191 +1,162 @@
-/* ===== 邻里 OS · 像素设计系统 =====
- * 一台由像素构成的现代操作系统。
- * 硬边、零圆角、偏移像素影、抖点代替渐变、有限色板。
- * 字号里拉丁/数字走等宽，中文走系统黑体 —— 终端质感，中文可读。
- * 全局：无圆角、无模糊渐影、无抗锯齿假影。
+/* ===== 邻里闲置 · 轻社区设计系统 =====
+ * 干净现代、手机原生：通透浅底 + 纯白卡片 + 单一青绿强调。
+ * 少即是多：一个强调色用于价格与主操作，其余靠中性层级与留白。
+ * 记忆点：首页的全出血头条卡片 —— 一眼看见今天最值得的闲置。
  */
 page {
-  --ink:   #101319;   /* deep charcoal · 页面底 */
-  --ink-2: #151A24;
-  --navy:  #1B2334;   /* dark navy · 面板 */
-  --navy-2:#263049;
-  --blue:  #3E7BFF;   /* electric blue · 主强调 */
-  --cyan:  #5FD4E2;   /* soft cyan · 次强调 */
-  --whit:  #F2EFE8;   /* warm white · 前景 */
-  --steel: #8A93A8;   /* steel · 次要文字 */
-  --line:  #2A3144;   /* 硬像素描边 */
-  --pix:   #080B10;   /* 像素影（硬偏移） */
+  --bg: #F5F6F5;
+  --surface: #FFFFFF;
+  --ink: #22262A;
+  --muted: #767D82;
+  --faint: #A9B0B5;
+  --line: #EDEFED;
+  --line-soft: rgba(34, 38, 42, 0.06);
+  --teal: #0E7A6A;
+  --teal-deep: #0A5E52;
+  --teal-soft: rgba(14, 122, 106, 0.08);
+  --shadow: 0 10rpx 32rpx rgba(34, 38, 42, 0.07);
+  --shadow-soft: 0 4rpx 16rpx rgba(34, 38, 42, 0.05);
 
-  background: var(--ink);
-  color: var(--whit);
+  background: var(--bg);
+  color: var(--ink);
   font-size: 28rpx;
-  font-family: Menlo, Consolas, "SF Mono", "Courier New", "PingFang SC", monospace;
-  font-weight: 400;
-  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
 }
 
-/* 全局：无圆角 —— 像素铁律 */
-page, view, text, button, input, textarea, picker, image, navigator {
-  border-radius: 0;
-}
-
-/* 面板：深海军蓝，双像素描边，硬偏移影 */
+/* 白卡片：一层悬浮，无边框靠影 */
 .card {
-  background: var(--navy);
-  border: 2rpx solid var(--line);
+  background: var(--surface);
+  border-radius: 28rpx;
   padding: 28rpx;
   margin: 0 24rpx 20rpx;
-  box-shadow: 4rpx 4rpx 0 var(--pix);
+  box-shadow: var(--shadow-soft);
   position: relative;
 }
 
-/* 抖点遮罩：图块或状态条里代替渐变的细密像素点 */
-.dither {
-  background-image:
-    repeating-linear-gradient(45deg,
-      rgba(242, 239, 232, 0.05) 0 3rpx,
-      transparent 3rpx 7rpx);
-}
-
-/* 价格：电光蓝 */
+/* 价格：青绿，单点强调 */
 .price {
-  color: var(--blue);
-  font-weight: 700;
+  color: var(--teal);
+  font-weight: 650;
   font-size: 34rpx;
-  letter-spacing: 1rpx;
+  letter-spacing: 0.5rpx;
 }
 .price-small {
-  color: var(--blue);
-  font-weight: 700;
+  color: var(--teal);
+  font-weight: 650;
   font-size: 30rpx;
 }
 
-/* 状态戳：硬像素标签 */
+/* 状态盖戳：浅青底 */
 .tag {
   display: inline-block;
-  font-size: 21rpx;
-  font-weight: 600;
+  font-size: 22rpx;
+  font-weight: 500;
   line-height: 1;
-  padding: 8rpx 12rpx;
-  border: 2rpx solid var(--blue);
-  color: var(--cyan);
-  background: rgba(62, 123, 255, 0.14);
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: var(--teal-soft);
+  color: var(--teal);
 }
 .tag-warn {
-  border-color: #E07A54;
-  color: #F0A88B;
-  background: rgba(224, 122, 84, 0.12);
+  background: rgba(216, 106, 74, 0.1);
+  color: #D0623F;
 }
 .tag-muted {
-  border-color: var(--line);
-  color: var(--steel);
-  background: transparent;
+  background: rgba(118, 125, 130, 0.12);
+  color: var(--muted);
+}
+/* 盖戳之白字版：压在图片上时 */
+.tag.light {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--teal);
 }
 
-/* 筛选片：像素切换钮 */
+/* 筛选片 */
 .chip {
   display: inline-block;
-  padding: 12rpx 26rpx;
-  border: 2rpx solid var(--line);
-  background: var(--navy);
-  color: var(--steel);
+  padding: 12rpx 30rpx;
+  border-radius: 999rpx;
+  background: var(--surface);
+  color: var(--muted);
+  border: 1rpx solid var(--line);
   font-size: 26rpx;
-  font-weight: 500;
-  transition: all 0.12s;
+  transition: all 0.2s;
 }
 .chip.active {
-  border-color: var(--blue);
-  background: var(--blue);
-  color: #101319;
-  font-weight: 700;
+  background: var(--teal);
+  color: #FFFFFF;
+  border-color: var(--teal);
+  font-weight: 600;
 }
 
-/* 主按钮：电光蓝填充 + 像素影 */
+/* 主按钮：青绿胶囊 */
 .btn-primary {
-  background: var(--blue);
-  color: #101319;
-  border: 2rpx solid var(--line);
-  border-radius: 0;
+  background: var(--teal);
+  color: #FFFFFF;
+  border-radius: 999rpx;
   margin-top: 24rpx;
   font-size: 30rpx;
-  font-weight: 700;
-  letter-spacing: 1rpx;
-  box-shadow: 4rpx 4rpx 0 var(--pix);
+  font-weight: 600;
 }
 .btn-primary::after {
   border: none;
 }
 .btn-primary:active {
-  color: var(--cyan);
-  box-shadow: 1rpx 1rpx 0 var(--pix);
-  transform: translate(3rpx, 3rpx);
+  background: var(--teal-deep);
 }
 
-/* 次要按钮：描边 */
+/* 次要按钮：白底描边 */
 .btn-ghost {
-  background: var(--navy);
-  color: var(--whit);
-  border: 2rpx solid var(--line);
-  border-radius: 0;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1rpx solid var(--line);
+  border-radius: 999rpx;
   font-size: 28rpx;
   font-weight: 500;
-  box-shadow: 3rpx 3rpx 0 var(--pix);
 }
 .btn-ghost::after {
   border: none;
 }
-.btn-ghost:active {
-  transform: translate(2rpx, 2rpx);
-  box-shadow: 1rpx 1rpx 0 var(--pix);
-}
 
-/* 输入：硬像素字段 */
+/* 输入：圆角字段，浅底色 */
 input, textarea {
-  background: var(--navy);
-  border: 2rpx solid var(--line);
-  border-radius: 0;
-  padding: 20rpx 24rpx;
+  background: var(--surface);
+  border: 1rpx solid var(--line);
+  border-radius: 18rpx;
+  padding: 20rpx 26rpx;
   font-size: 28rpx;
-  color: var(--whit);
+  color: var(--ink);
   box-sizing: border-box;
   width: 100%;
-  font-weight: 400;
 }
 input::placeholder, textarea::placeholder {
-  color: var(--steel);
+  color: var(--faint);
 }
 input:focus, textarea:focus {
-  border-color: var(--blue);
-  background: var(--navy-2);
+  border-color: var(--teal);
 }
 
 /* 空态 */
 .empty {
   text-align: center;
-  color: var(--steel);
+  color: var(--muted);
   padding: 100rpx 52rpx;
   font-size: 26rpx;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 .empty .empty-title {
   display: block;
-  color: var(--whit);
+  color: var(--ink);
   font-size: 30rpx;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 12rpx;
 }
 
-/* 区块标题：等宽、左上锚定 */
+/* 区块标题 */
 .section-title {
-  font-size: 26rpx;
-  font-weight: 700;
-  letter-spacing: 2rpx;
-  color: var(--cyan);
-  text-transform: uppercase;
+  font-size: 30rpx;
+  font-weight: 650;
+  color: var(--ink);
   margin: 30rpx 28rpx 18rpx;
-}
-.section-title::after {
-  content: "▍";
-  color: var(--blue);
-  margin-left: 8rpx;
 }

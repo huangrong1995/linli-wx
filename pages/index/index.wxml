@@ -1,22 +1,11 @@
-<view class="osbar dither">
-  <view class="os-l">
-    <view class="os-mark">
-      <view class="mk mk-blue"></view><view class="mk mk-cyan"></view><view class="mk mk-cyan"></view><view class="mk mk-blue"></view>
-    </view>
-    <text class="os-name">邻里 OS</text>
-    <text class="os-ver">v2.1</text>
+<view class="top">
+  <view class="brand-row">
+    <text class="brand">邻里闲置</text>
+    <text class="brand-sub">把闲置，给下一位邻居</text>
   </view>
-  <view class="os-r">
-    <text class="os-dot">●</text>
-    <text class="os-status">NET:OK</text>
-  </view>
-</view>
-
-<view class="hero">
-  <text class="brand">把闲置，交给下一位邻居</text>
   <view class="search-box">
-    <text class="s-icon">⌖</text>
-    <input class="search" placeholder="搜索闲置或邻居…" value="{{keyword}}"
+    <text class="s-icon">⌕</text>
+    <input class="search" placeholder="搜索闲置或邻居" value="{{keyword}}"
            bindinput="onKeyword" confirm-type="search" bindconfirm="onSearch" />
   </view>
   <view class="chips">
@@ -26,17 +15,33 @@
   </view>
 </view>
 
-<view class="grid">
-  <view wx:for="{{items}}" wx:key="id" class="cell" bindtap="onItemTap" data-id="{{item.id}}">
-    <view class="media">
-      <image wx:if="{{item.image}}" class="media-img" src="{{item.image}}" mode="aspectFill" />
-      <view wx:else class="media-img missing"></view>
+<!-- 头条卡片：今天最值得的闲置 -->
+<view class="hero" wx:if="{{items.length}}" bindtap="onItemTap" data-id="{{items[0].id}}">
+  <image wx:if="{{items[0].image}}" class="hero-img" src="{{items[0].image}}" mode="aspectFill" />
+  <view wx:else class="hero-img missing"></view>
+  <view class="hero-shade"></view>
+  <view class="hero-info">
+    <text class="tag light">{{typeLabel[items[0].item_type]}}</text>
+    <text class="hero-title">{{items[0].title}}</text>
+    <text class="hero-price" wx:if="{{items[0].item_type!=='lend'}}">¥{{items[0].price}}</text>
+    <text class="hero-price" wx:else>免费借用</text>
+  </view>
+</view>
+
+<view class="section-title" wx:if="{{items.length}}">更多闲置</view>
+<view class="list">
+  <view wx:for="{{items}}" wx:key="id" class="row" bindtap="onItemTap" data-id="{{item.id}}">
+    <view class="row-media">
+      <image wx:if="{{item.image}}" class="row-img" src="{{item.image}}" mode="aspectFill" />
+      <view wx:else class="row-img missing"></view>
     </view>
-    <text class="cell-title">{{item.title}}</text>
-    <view class="cell-foot">
-      <text class="price-small" wx:if="{{item.item_type==='sale'||item.item_type==='rent'}}">¥{{item.price}}</text>
-      <text class="borrow" wx:else>可借</text>
-      <text class="tag">{{typeLabel[item.item_type]}}</text>
+    <view class="row-body">
+      <text class="row-title">{{item.title}}</text>
+      <view class="row-foot">
+        <text class="price-small" wx:if="{{item.item_type==='sale'||item.item_type==='rent'}}">¥{{item.price}}</text>
+        <text class="borrow" wx:else>免费借用</text>
+        <text class="tag">{{typeLabel[item.item_type]}}</text>
+      </view>
     </view>
     <view class="fav {{item._fav?'on':''}}" catchtap="onFavTap" data-id="{{item.id}}">{{item._fav?'♥':'♡'}}</view>
   </view>
@@ -46,6 +51,6 @@
 
 <view class="footer" wx:if="{{loading}}">加载中…</view>
 <view class="empty" wx:if="{{items.length===0 && !loading}}">
-  <text class="empty-title">目录为空</text>
-  换一组筛选，或发布一件闲置
+  <text class="empty-title">这里还空着</text>
+  换个筛选或关键词，看看隔壁
 </view>

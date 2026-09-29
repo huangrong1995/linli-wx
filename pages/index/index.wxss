@@ -1,86 +1,47 @@
-/* 首页：OS 状态条 + 像素目录 */
-.osbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16rpx 24rpx;
-  background: var(--ink-2);
-  border-bottom: 2rpx solid var(--line);
+/* 首页：手机原生 —— 品牌行 + 悬浮搜索 + 头条卡 + 纵列表 */
+.top {
+  padding: 20rpx 24rpx 6rpx;
 }
-.os-l {
-  display: flex;
-  align-items: center;
-  gap: 12rpx;
-}
-.os-mark {
-  display: grid;
-  grid-template-columns: 14rpx 14rpx;
-  gap: 3rpx;
-  width: 34rpx;
-}
-.mk {
-  width: 14rpx;
-  height: 14rpx;
-}
-.mk-blue { background: var(--blue); }
-.mk-cyan { background: var(--cyan); }
-.os-name {
-  font-size: 26rpx;
-  font-weight: 700;
-  letter-spacing: 1rpx;
-  color: var(--whit);
-}
-.os-ver {
-  font-size: 20rpx;
-  color: var(--steel);
-}
-.os-r {
-  display: flex;
-  align-items: center;
-  gap: 8rpx;
-}
-.os-dot { color: var(--cyan); font-size: 18rpx; }
-.os-status {
-  font-size: 20rpx;
-  letter-spacing: 1rpx;
-  color: var(--steel);
-}
-
-.hero {
-  padding: 30rpx 24rpx 6rpx;
+.brand-row {
+  margin-bottom: 20rpx;
 }
 .brand {
   display: block;
-  font-size: 30rpx;
+  font-size: 42rpx;
   font-weight: 700;
   letter-spacing: 1rpx;
-  color: var(--whit);
-  margin-bottom: 22rpx;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.brand-sub {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 25rpx;
+  color: var(--muted);
 }
 .search-box {
   display: flex;
   align-items: center;
-  background: var(--navy);
-  border: 2rpx solid var(--line);
-  padding: 0 24rpx;
-  box-shadow: 3rpx 3rpx 0 var(--pix);
+  background: var(--surface);
+  border: 1rpx solid var(--line);
+  border-radius: 999rpx;
+  padding: 0 26rpx;
+  box-shadow: var(--shadow-soft);
 }
 .s-icon {
-  color: var(--cyan);
-  font-size: 26rpx;
+  color: var(--faint);
+  font-size: 32rpx;
   margin-right: 14rpx;
 }
 .search {
   background: transparent;
   border: none;
-  box-shadow: none;
   flex: 1;
   padding: 20rpx 0;
 }
 .search:focus {
   background: transparent;
   border: none;
-  box-shadow: none;
 }
 .chips {
   display: flex;
@@ -94,114 +55,162 @@
   flex-shrink: 0;
 }
 
-/* 双列像素网格 */
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20rpx;
-  padding: 24rpx 24rpx 150rpx;
-}
-.cell {
-  width: calc((100% - 20rpx) / 2);
-  box-sizing: border-box;
-  background: var(--navy);
-  border: 2rpx solid var(--line);
-  padding: 14rpx;
-  box-shadow: 4rpx 4rpx 0 var(--pix);
+/* 头条卡片：全出血，图片撑满 */
+.hero {
   position: relative;
+  margin: 10rpx 24rpx 0;
+  height: 400rpx;
+  border-radius: 32rpx;
   overflow: hidden;
+  box-shadow: var(--shadow);
 }
-.cell:active {
-  transform: translate(2rpx, 2rpx);
-  box-shadow: 2rpx 2rpx 0 var(--pix);
-}
-.media {
-  overflow: hidden;
-}
-.media-img {
+.hero-img {
   width: 100%;
-  height: 280rpx;
+  height: 100%;
   display: block;
 }
-.media-img.missing {
-  background-color: var(--navy-2);
-  background-image:
-    repeating-linear-gradient(45deg,
-      rgba(62, 123, 255, 0.08) 0 3rpx,
-      transparent 3rpx 7rpx);
+.hero-img.missing {
+  background: linear-gradient(150deg, #E7F0EC, #D9E7E0);
 }
-.cell-title {
-  margin-top: 14rpx;
-  font-size: 26rpx;
-  font-weight: 500;
-  color: var(--whit);
+.hero-shade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  background: linear-gradient(180deg, rgba(20, 26, 24, 0) 0%, rgba(20, 26, 24, 0.72) 100%);
+}
+.hero-info {
+  position: absolute;
+  left: 30rpx;
+  right: 30rpx;
+  bottom: 26rpx;
+}
+.hero-title {
   display: block;
+  margin-top: 12rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.35;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.cell-foot {
+.hero-price {
+  display: block;
   margin-top: 10rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* 纵列列表：原生一行一卡片 */
+.list {
+  padding: 0 24rpx 140rpx;
+}
+.row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8rpx;
+  gap: 22rpx;
+  background: var(--surface);
+  border-radius: 26rpx;
+  padding: 18rpx;
+  margin-bottom: 18rpx;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+.row:active {
+  transform: scale(0.99);
+}
+.row-media {
+  width: 170rpx;
+  height: 170rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.row-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.row-img.missing {
+  background: linear-gradient(150deg, #E7F0EC, #D9E7E0);
+}
+.row-body {
+  flex: 1;
+  min-width: 0;
+}
+.row-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.row-foot {
+  margin-top: 14rpx;
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
 }
 .borrow {
-  color: var(--cyan);
-  font-weight: 700;
-  font-size: 26rpx;
+  color: var(--teal);
+  font-weight: 650;
+  font-size: 28rpx;
 }
 .fav {
   position: absolute;
-  top: 24rpx;
-  right: 24rpx;
-  width: 48rpx;
-  height: 48rpx;
-  background: rgba(16, 19, 25, 0.7);
-  border: 2rpx solid var(--line);
-  color: var(--steel);
-  font-size: 28rpx;
+  top: 22rpx;
+  right: 22rpx;
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-soft);
+  color: var(--faint);
+  font-size: 30rpx;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .fav.on {
-  color: var(--cyan);
-  border-color: var(--blue);
+  color: var(--teal);
 }
 
-/* 悬浮发布：像素方块 */
+/* 悬浮发布 */
 .fab {
   position: fixed;
   right: 32rpx;
-  bottom: calc(32rpx + env(safe-area-inset-bottom));
-  width: 104rpx;
-  height: 104rpx;
-  background: var(--blue);
-  border: 2rpx solid var(--line);
-  box-shadow: 5rpx 5rpx 0 var(--pix);
-  color: #101319;
+  bottom: calc(36rpx + env(safe-area-inset-bottom));
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #FFF;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 14rpx 36rpx rgba(14, 122, 106, 0.4);
   z-index: 8;
 }
 .fab:active {
-  transform: translate(3rpx, 3rpx);
-  box-shadow: 2rpx 2rpx 0 var(--pix);
+  transform: scale(0.94);
+  opacity: 0.92;
 }
 .fab-plus {
-  font-size: 52rpx;
-  font-weight: 700;
+  font-size: 48rpx;
+  font-weight: 300;
   line-height: 1;
   margin-top: -4rpx;
 }
 
 .footer {
   text-align: center;
-  color: var(--steel);
+  color: var(--faint);
   padding: 24rpx;
-  font-size: 22rpx;
-  letter-spacing: 1rpx;
+  font-size: 24rpx;
 }
