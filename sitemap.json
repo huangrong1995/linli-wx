@@ -1,0 +1,4 @@
+{
+  "desc": "邻里闲置",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

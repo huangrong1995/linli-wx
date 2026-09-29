@@ -1,0 +1,15 @@
+{
+  "description": "邻里闲置小程序",
+  "packOptions": { "ignore": [], "include": [] },
+  "appid": "touristappid",
+  "projectname": "linli-wx",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.0.0"
+}
